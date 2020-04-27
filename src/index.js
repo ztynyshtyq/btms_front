@@ -17,11 +17,9 @@ const local_state = loadState();
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware, authMiddleware));
 
-/*
 store.subscribe(() => {
     saveState(store.getState())
 })
-*/
 
 ReactDOM.render(
     <Provider store={store}>
