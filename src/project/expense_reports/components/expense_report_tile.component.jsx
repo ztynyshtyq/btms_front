@@ -34,23 +34,10 @@ const CustomDateInput = ({value, onClick}) => (
 );
 
 
-const app = (
-    {
-        id,
-        reportingDateBegin,
-        reportingDateEnd,
-        comments,
-        expenseReportAmounts: accountingInformation,
-        chargeCode,
-        country,
-        city,
-        updateBtms,
-        handlerChange,
-        chargeCodeName
-    }) => (
+const app = (expenseReport) => (
     <div className="BTMS_item">
         <div className="btmsHeader">
-            <h3>BTMS #{id} charged on {chargeCodeName}</h3>
+            <h3>BTMS #{id} charged on {expenseReport.chargeCodeName}</h3>
         </div>
         <div className="btmsContent">
             <div className="BTMS_general">
@@ -61,9 +48,9 @@ const app = (
                     </div>
                     <div className="BTMS_item_right">
                         <div className="reportingDateBegin">
-                            <DatePicker selected={new Date(reportingDateBegin)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateBegin)}
                                         onChange={date => {
-                                            handlerChange({
+                                            expenseReport.handlerChange({
                                                 id: id,
                                                 "reportingDateBegin": +(new Date(date))
                                             });
@@ -73,9 +60,9 @@ const app = (
                             />
                         </div>
                         <div className="reportingDateEnd">
-                            <DatePicker selected={new Date(reportingDateEnd)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateEnd)}
                                         onChange={date => {
-                                            handlerChange({
+                                            expenseReport.handlerChange({
                                                 id: id,
                                                 "reportingDateEnd": +(new Date(date))
                                             });
@@ -93,14 +80,14 @@ const app = (
                     </div>
                     <div className="BTMS_item_right">
                         <div className="country">
-                            <input type="text" placeholder="country" value={country}
+                            <input type="text" placeholder="country" value={expenseReport.country}
                                    data-btmsfield="country"
-                                   onChange={e => inputChanges(e, handlerChange, id)}/>
+                                   onChange={e => inputChanges(e, expenseReport.handlerChange, id)}/>
                         </div>
                         <div className="city">
-                            <input type="text" placeholder="city" value={city}
+                            <input type="text" placeholder="city" value={expenseReport.city}
                                    data-btmsfield="city"
-                                   onChange={e => inputChanges(e, handlerChange, id)}/>
+                                   onChange={e => inputChanges(e, expenseReport.handlerChange, id)}/>
                         </div>
                     </div>
                 </div>
@@ -110,8 +97,8 @@ const app = (
                         <label htmlFor=""><i className="icon-pencil7"/> &nbsp; Comments:</label>
                     </div>
                     <div className="BTMS_item_right">
-                        <input type="text" placeholder="comments" value={comments} data-btmsfield="Comments"
-                               onChange={e => inputChanges(e, handlerChange, id)}/>
+                        <input type="text" placeholder="comments" value={expenseReport.comments} data-btmsfield="Comments"
+                               onChange={e => inputChanges(e, expenseReport.handlerChange, id)}/>
                     </div>
                 </div>
 
@@ -129,7 +116,7 @@ const app = (
                         </tr>
                         </thead>
                         <tbody>
-                        {accountingInformation.map((accountItem) => (
+                        {expenseReport.expenseReportAmounts.map((accountItem) => (
                             <tr>
                                 <td className="statement">{accountItem.code}</td>
                                 <td className="amount">
@@ -155,8 +142,7 @@ const app = (
                     </table>
                     <div className="BTMS_item_controlButtons">
                         <button className="BTMS_item_controlButtons_confirm" onClick={e => {
-                            handlerChange({id: id, status: "Confirmed"});
-                            updateBtms(id);
+                            expenseReport.setSingleExpenseReportFromUserRequests({...expenseReport});
                         }}>Send to Confirmation
                         </button>
                     </div>
