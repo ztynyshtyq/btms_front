@@ -23,8 +23,8 @@ const _processRequest = (data) => {
     return data.expense_reports.map((btmsItem) => {
         return Object.assign({}, btmsItem, {
             createData: btmsItem.create_data / 1000,
-            reportingDateBegin: btmsItem.reporting_date_begin / 1000,
-            reportingDateEnd: btmsItem.reporting_date_end / 1000,
+            reportingDateBegin: btmsItem.reporting_date_begin,
+            reportingDateEnd: btmsItem.reporting_date_end,
             expenseReportBalance: btmsItem.expense_report_balance,
             expenseReportOverspending: btmsItem.expense_report_overspending,
             expenseTotalAmount: btmsItem.expense_total_amount,

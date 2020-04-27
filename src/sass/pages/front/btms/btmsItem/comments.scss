@@ -2,7 +2,11 @@
   color: $kpmg_primary_font_color;
   font-size: $font-size-secondary;
 
-  & input {
+  & textarea {
+    border: none;
+    border-radius: 2px;
+    resize: none;
     width: 265px;
+    background: #e7e7e7;;
   }
 }

@@ -19,7 +19,7 @@
 
   & .city{
     display: inline-block;
-    width: 155px;
+    width: 265px;
 
     & input{
       background-color: $color_input;
@@ -27,8 +27,8 @@
       border-radius: 2px;
       height: 25px;
       padding: 3px 10px 3px 3px;
-      text-align: right;
-      width: 145px;
+      text-align: left;
+      width: 265px;
     }
   }
 }

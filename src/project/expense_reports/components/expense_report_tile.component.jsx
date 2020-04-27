@@ -48,7 +48,7 @@ const app = (expenseReport) => (
                     </div>
                     <div className="BTMS_item_right">
                         <div className="reportingDateBegin">
-                            <DatePicker selected={new Date(expenseReport.reportingDateBegin)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateBegin*1000)}
                                         onChange={date => {
                                             expenseReport.handlerChange({
                                                 id: expenseReport.id,
@@ -60,7 +60,7 @@ const app = (expenseReport) => (
                             />
                         </div>
                         <div className="reportingDateEnd">
-                            <DatePicker selected={new Date(expenseReport.reportingDateEnd)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateEnd*1000)}
                                         onChange={date => {
                                             expenseReport.handlerChange({
                                                 id: expenseReport.id,
@@ -79,11 +79,6 @@ const app = (expenseReport) => (
                         <label htmlFor=""><i className="icon-airplane3"/> &nbsp; Destination:</label>
                     </div>
                     <div className="BTMS_item_right">
-                        <div className="country">
-                            <input type="text" placeholder="country" value={expenseReport.country}
-                                   data-btmsfield="country"
-                                   onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
-                        </div>
                         <div className="city">
                             <input type="text" placeholder="city" value={expenseReport.city}
                                    data-btmsfield="city"
@@ -97,7 +92,7 @@ const app = (expenseReport) => (
                         <label htmlFor=""><i className="icon-pencil7"/> &nbsp; Comments:</label>
                     </div>
                     <div className="BTMS_item_right">
-                        <input type="text" placeholder="comments" value={expenseReport.comments} data-btmsfield="Comments"
+                        <textarea type="text" placeholder="comments" value={expenseReport.comments} data-btmsfield="Comments"
                                onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
                     </div>
                 </div>
@@ -123,7 +118,7 @@ const app = (expenseReport) => (
                                     <input type="text" className="amount" value={accountItem.amount}/>
                                 </td>
                                 <td className="comment">
-                                    <input value={accountItem.description} placeholder="comments"/>
+                                    <text value={accountItem.description} placeholder="comments"/>
                                 </td>
                                 <td><i className="icon-attachment"/></td>
                             </tr>
