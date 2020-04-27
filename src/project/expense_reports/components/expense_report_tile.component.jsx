@@ -37,7 +37,7 @@ const CustomDateInput = ({value, onClick}) => (
 const app = (expenseReport) => (
     <div className="BTMS_item">
         <div className="btmsHeader">
-            <h3>BTMS #{id} charged on {expenseReport.chargeCodeName}</h3>
+            <h3>BTMS #{expenseReport.id} charged on {expenseReport.chargeCodeName}</h3>
         </div>
         <div className="btmsContent">
             <div className="BTMS_general">
@@ -51,7 +51,7 @@ const app = (expenseReport) => (
                             <DatePicker selected={new Date(expenseReport.reportingDateBegin)}
                                         onChange={date => {
                                             expenseReport.handlerChange({
-                                                id: id,
+                                                id: expenseReport.id,
                                                 "reportingDateBegin": +(new Date(date))
                                             });
                                         }}
@@ -63,7 +63,7 @@ const app = (expenseReport) => (
                             <DatePicker selected={new Date(expenseReport.reportingDateEnd)}
                                         onChange={date => {
                                             expenseReport.handlerChange({
-                                                id: id,
+                                                id: expenseReport.id,
                                                 "reportingDateEnd": +(new Date(date))
                                             });
                                         }}
@@ -82,12 +82,12 @@ const app = (expenseReport) => (
                         <div className="country">
                             <input type="text" placeholder="country" value={expenseReport.country}
                                    data-btmsfield="country"
-                                   onChange={e => inputChanges(e, expenseReport.handlerChange, id)}/>
+                                   onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
                         </div>
                         <div className="city">
                             <input type="text" placeholder="city" value={expenseReport.city}
                                    data-btmsfield="city"
-                                   onChange={e => inputChanges(e, expenseReport.handlerChange, id)}/>
+                                   onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ const app = (expenseReport) => (
                     </div>
                     <div className="BTMS_item_right">
                         <input type="text" placeholder="comments" value={expenseReport.comments} data-btmsfield="Comments"
-                               onChange={e => inputChanges(e, expenseReport.handlerChange, id)}/>
+                               onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
                     </div>
                 </div>
 
