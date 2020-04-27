@@ -1,0 +1,445 @@
+ul {
+  color: black; }
+
+ul {
+  color: black; }
+
+@font-face {
+  font-family: KPMGCyrillic-Extralight;
+  src: url("/fonts/KPMGCyrillic-Extralight-160705.ttf"); }
+
+#ucUsers .ucEmployeeColumn .ucAvatar {
+  cursor: pointer;
+  display: inline-block; }
+  #ucUsers .ucEmployeeColumn .ucAvatar i {
+    border: solid 1px #111;
+    border-radius: 50%;
+    font-size: 42px;
+    padding: 7px;
+    vertical-align: text-top; }
+
+#ucUsers .ucEmployeeColumn .ucName {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: text-top; }
+
+#ucUsers .ucStatusColumn {
+  text-align: right; }
+
+#ucNavbar {
+  background-color: #0f417b;
+  text-align: left; }
+  #ucNavbar ul {
+    list-style: none;
+    margin: auto;
+    width: 1440px; }
+    #ucNavbar ul li {
+      display: inline-block;
+      margin: 0 0 0 10px; }
+      #ucNavbar ul li button {
+        background: none;
+        box-shadow: none;
+        border: none;
+        color: #dedede;
+        cursor: pointer;
+        display: inline-block;
+        height: 45px;
+        line-height: 45px;
+        margin: 0 0 2px;
+        padding: 0 5px;
+        text-decoration: none; }
+        #ucNavbar ul li button.ucSelectedFilter {
+          border-bottom: solid 3px #fefefe;
+          color: #fefefe; }
+        #ucNavbar ul li button:hover {
+          border-bottom: solid 3px #fefefe; }
+        #ucNavbar ul li button:focus {
+          outline: 0; }
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; }
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41; }
+
+#ucHeader {
+  background-color: #1b5eaa; }
+  #ucHeader div {
+    height: 76px;
+    margin: auto;
+    padding: 25px 0 0 0;
+    width: 1440px; }
+    #ucHeader div p {
+      color: #fefefe;
+      font-size: 48px;
+      font-family: KPMGCyrillic-Extralight;
+      display: inline-block;
+      line-height: 1em;
+      margin: 0 0 0 20px;
+      position: relative;
+      top: -10px;
+      vertical-align: top; }
+    #ucHeader div img {
+      display: inline-block;
+      vertical-align: top;
+      width: 79px; }
+
+#ucLeftToolbar {
+  border-right: solid 1px #cecece;
+  display: inline-block;
+  padding: 20px 0 0 0;
+  width: 300px; }
+
+.ucBTMSList {
+  display: inline-block;
+  height: auto;
+  padding: 0 0 0 20px;
+  vertical-align: top;
+  width: 1440px; }
+  .ucBTMSList h4 {
+    display: inline-block;
+    line-height: 50px;
+    vertical-align: top; }
+  .ucBTMSList ul {
+    display: inline-block;
+    height: 58px;
+    list-style: none;
+    margin: 0 0 0 20px;
+    vertical-align: top; }
+    .ucBTMSList ul li {
+      display: inline-block;
+      margin: 0 0 0 15px;
+      height: 100%; }
+      .ucBTMSList ul li button {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        height: 100%; }
+        .ucBTMSList ul li button:hover {
+          background-color: #dedede; }
+
+.ucBTMSList .BTMSList .BTMS_item {
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  margin: 0 0 15px 0; }
+  .ucBTMSList .BTMSList .BTMS_item .btmsContent {
+    padding: 10px 10px 10px 15px; }
+  .ucBTMSList .BTMSList .BTMS_item .btmsHeader {
+    background-color: #094d99;
+    height: 40px;
+    padding: 10px 10px 10px 15px; }
+  .ucBTMSList .BTMSList .BTMS_item h3 {
+    color: white; }
+
+.ucBTMSList .BTMSList div.BTMS_general {
+  display: inline-block;
+  vertical-align: top; }
+  .ucBTMSList .BTMSList div.BTMS_general h4 {
+    color: #4e4e4e;
+    line-height: 1em;
+    margin: 5px 0 10px; }
+  .ucBTMSList .BTMSList div.BTMS_general > div {
+    margin: 0 0 10px 0; }
+    .ucBTMSList .BTMSList div.BTMS_general > div .BTMS_item_left {
+      display: inline-block;
+      text-align: left;
+      width: 100px; }
+    .ucBTMSList .BTMSList div.BTMS_general > div .BTMS_item_right {
+      display: inline-block;
+      text-align: right;
+      width: 320px; }
+    .ucBTMSList .BTMSList div.BTMS_general > div input {
+      background-color: #e7e7e7;
+      border: none;
+      border-radius: 2px;
+      height: 25px;
+      padding: 3px; }
+      .ucBTMSList .BTMSList div.BTMS_general > div input:focus {
+        outline: none; }
+
+.BTMS_item_controlButtons {
+  margin: 15px 0 0 0;
+  text-align: right; }
+
+.BTMS_item_controlButtons_confirm {
+  background-color: #1b5eaa;
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
+  color: #fefefe;
+  cursor: pointer;
+  height: 25px;
+  margin: 0 0 0 10px;
+  width: 100px; }
+  .BTMS_item_controlButtons_confirm:hover {
+    background-color: #094d99; }
+  .BTMS_item_controlButtons_confirm:active {
+    background-color: #0f417b;
+    left: 1px;
+    position: relative;
+    top: 1px; }
+
+.BTMS_item_controlButtons_cancel {
+  background-color: transparent;
+  border: solid 1px #343434;
+  border-radius: 2px;
+  color: #343434;
+  cursor: pointer;
+  height: 25px;
+  width: 100px; }
+  .BTMS_item_controlButtons_cancel:hover {
+    background-color: #545454;
+    color: #fefefe; }
+  .BTMS_item_controlButtons_cancel:active {
+    background-color: #434343;
+    color: #fefefe;
+    left: 1px;
+    position: relative;
+    top: 1px; }
+
+.BTMS_general_item.chargeCode input {
+  width: 300px; }
+
+.BTMS_general_item.project_manager input {
+  width: 300px; }
+
+.BTMS_item_chargeCode {
+  display: inline-block;
+  margin: 0 0 0 20px; }
+  .BTMS_item_chargeCode input {
+    background-color: #e7e7e7;
+    border: none;
+    border-radius: 2px;
+    height: 25px;
+    padding: 3px; }
+
+.BTMS_item_header {
+  display: inline-block;
+  width: 180px; }
+
+.BTMS_general_item.period .reportingDateBegin input {
+  margin: 0 10px 0 0; }
+
+.BTMS_accounting {
+  display: inline-block;
+  margin: 0 0 0 30px;
+  vertical-align: top; }
+  .BTMS_accounting h4 {
+    color: #4e4e4e;
+    line-height: 1em;
+    margin: 0 0 10px; }
+  .BTMS_accounting table {
+    border-collapse: collapse;
+    display: inline-block;
+    padding: 5px 0;
+    width: 570px; }
+  .BTMS_accounting thead {
+    border-bottom: solid 1px #cecece;
+    display: inline-block;
+    width: 100%; }
+    .BTMS_accounting thead th {
+      color: #4e4e4e;
+      font-size: 14px;
+      font-weight: 400; }
+      .BTMS_accounting thead th.statement {
+        text-align: left;
+        width: 200px; }
+      .BTMS_accounting thead th.amount {
+        color: #4e4e4e;
+        width: 100px; }
+      .BTMS_accounting thead th.comment {
+        color: #4e4e4e;
+        width: 250px; }
+  .BTMS_accounting tbody {
+    display: inline-block;
+    padding: 5px 0;
+    width: 100%; }
+    .BTMS_accounting tbody td {
+      color: #4e4e4e;
+      font-size: 14px;
+      font-weight: 100; }
+      .BTMS_accounting tbody td.statement {
+        display: inline-block;
+        text-align: left;
+        width: 200px; }
+      .BTMS_accounting tbody td.amount {
+        color: #4e4e4e;
+        width: 100px; }
+        .BTMS_accounting tbody td.amount input {
+          text-align: right;
+          width: 100px; }
+      .BTMS_accounting tbody td.comment {
+        width: 250px; }
+        .BTMS_accounting tbody td.comment input {
+          color: #afafaf;
+          text-align: right;
+          width: 250px; }
+  .BTMS_accounting tfoot {
+    border-top: 1px solid #cecece;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%; }
+    .BTMS_accounting tfoot td.statement {
+      text-align: left;
+      width: 200px; }
+    .BTMS_accounting tfoot td.amount {
+      text-align: right;
+      width: 100px; }
+  .BTMS_accounting input {
+    background-color: #e7e7e7;
+    border: none;
+    border-radius: 1px;
+    height: 25px;
+    padding: 0 0 0 2px;
+    width: 150px; }
+
+.BTMS_general_item.period {
+  color: #4e4e4e;
+  font-size: 14px; }
+
+.BTMS_general_item.period .reportingDateBegin, .BTMS_general_item.period .reportingDateEnd {
+  display: inline-block; }
+  .BTMS_general_item.period .reportingDateBegin input, .BTMS_general_item.period .reportingDateEnd input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    width: 100px; }
+  .BTMS_general_item.period .reportingDateBegin span.ucDatePicker, .BTMS_general_item.period .reportingDateEnd span.ucDatePicker {
+    background-color: #d7d7d7;
+    border-right: solid 1px #cecece;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    padding: 8px;
+    vertical-align: top;
+    width: 25px; }
+
+.BTMS_general_item.comments {
+  color: #4e4e4e;
+  font-size: 14px; }
+  .BTMS_general_item.comments input {
+    width: 265px; }
+
+.btmsProgressBar {
+  display: inline-block;
+  margin: 0 0 0 30px; }
+  .btmsProgressBar h4 {
+    color: #4e4e4e;
+    display: block;
+    line-height: 1em;
+    margin: 5px 0 10px; }
+  .btmsProgressBar .routeBar div {
+    display: inline-block;
+    margin: 0 0 0 15px;
+    position: relative;
+    vertical-align: middle; }
+    .btmsProgressBar .routeBar div p {
+      margin: 0;
+      font-size: 14px; }
+      .btmsProgressBar .routeBar div p.employeeName {
+        color: #4e4e4e; }
+      .btmsProgressBar .routeBar div p.daysOutstanding {
+        color: #afafaf; }
+  .btmsProgressBar .routeBar span {
+    border: 2px solid #094d99;
+    border-radius: 50%;
+    display: inline-block;
+    height: 45px;
+    margin: 10px 0;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+    width: 45px; }
+    .btmsProgressBar .routeBar span:before {
+      background-color: #094d99;
+      content: "";
+      display: block;
+      height: 14px;
+      left: 18px;
+      position: relative;
+      top: -14px;
+      width: 5px; }
+    .btmsProgressBar .routeBar span:after {
+      background-color: #094d99;
+      content: "";
+      display: block;
+      height: 12px;
+      left: 18px;
+      position: relative;
+      top: 28px;
+      width: 5px; }
+  .btmsProgressBar .routeBar:first-of-type span {
+    margin-top: 0;
+    top: 0; }
+    .btmsProgressBar .routeBar:first-of-type span:before {
+      content: none; }
+    .btmsProgressBar .routeBar:first-of-type span:after {
+      top: 42px; }
+  .btmsProgressBar .routeBar:last-of-type span {
+    top: 0; }
+    .btmsProgressBar .routeBar:last-of-type span:after {
+      content: none; }
+
+.BTMS_general_item.destination {
+  color: #4e4e4e;
+  font-size: 14px; }
+  .BTMS_general_item.destination .country {
+    display: inline-block;
+    width: 155px; }
+    .BTMS_general_item.destination .country input {
+      background-color: #e7e7e7;
+      border: none;
+      border-radius: 2px;
+      height: 25px;
+      padding: 3px 10px 3px 3px;
+      text-align: right;
+      width: 110px; }
+  .BTMS_general_item.destination .city {
+    display: inline-block;
+    width: 155px; }
+    .BTMS_general_item.destination .city input {
+      background-color: #e7e7e7;
+      border: none;
+      border-radius: 2px;
+      height: 25px;
+      padding: 3px 10px 3px 3px;
+      text-align: right;
+      width: 145px; }
+
+.ucContainer {
+  margin: auto;
+  width: 1440px; }
