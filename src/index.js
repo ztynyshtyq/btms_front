@@ -10,16 +10,14 @@ import history from "./core/services/history";
 
 import LoginPage from "./project/auth/pages/login.page";
 import Dashboard from "./project/expense_reports/pages/expense_reports.page";
-import {loadState, saveState} from "./local_storage";
+import {loadState, saveState} from "./core/services/local_storage";
 import {authMiddleware} from "./core/auth/middlewares";
 
 const local_state = loadState();
+console.log(local_state);
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware, authMiddleware));
+const store = createStore(reducers, local_state, applyMiddleware(thunkMiddleware, authMiddleware));
 
-store.subscribe(() => {
-    saveState(store.getState())
-})
 
 ReactDOM.render(
     <Provider store={store}>

@@ -12,7 +12,7 @@ export const eventAuthSuccess = () => {
 }
 
 export const eventAuthFailed = () => ({
-    type: constants.EVENT_AUTH_SUCCESS,
+    type: "failed",
     success: false,
     isFetching: false
 });

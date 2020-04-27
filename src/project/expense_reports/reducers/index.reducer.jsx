@@ -17,6 +17,18 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 forUserApproval: action.expenseReportsForUser
             }
+        case actions.SET_SINGLE_EXPENSE_REPORT_FROM_USER_REQUESTS:
+            const newERRequests = state.fromUserRequests.map((item) => {
+                if(item.id === action.expenseReportFromUserRequests.id)
+                    return action.expenseReportFromUserRequests
+            });
+
+            console.log(newERRequests);
+
+            return {
+                ...state,
+                fromUserRequests: newERRequests
+            }
         default:
             return state;
     }

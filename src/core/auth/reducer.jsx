@@ -1,4 +1,6 @@
 import * as constants from "./constants";
+import {saveState} from "../services/local_storage";
+
 
 const initialState = {
     username: "mtsoy",
@@ -14,6 +16,7 @@ const reducer = (state = initialState, action) => {
             }
 
         case constants.EVENT_AUTH_SUCCESS:
+            saveState({userData: state})
             return {
                 ...state,
                 ...action
