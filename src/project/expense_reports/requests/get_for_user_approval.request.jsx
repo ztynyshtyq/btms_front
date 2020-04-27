@@ -2,12 +2,12 @@
 import * as urls from "../constants/urls";
 import * as events from "../../../core/auth/events";
 import * as core_events from "../../../core/events";
-import setExpenseReportsFromUser from "../actions/set_expense_reports_from_user.action";
+import setExpenseReportsForUser from "../actions/set_expense_reports_for_user.action";
 
 
-export const apiGetExpenseReportsFromUser = accessToken => dispatch => {
+export const apiGetExpenseReportsForUserApproval = accessToken => dispatch => {
     dispatch(core_events.eventInitRequest());
-    return fetch(urls.API_GET_FROM_USER_REQUESTS, {
+    return fetch(urls.API_GET_FOR_USER_APPROVAL, {
         method: "get",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -15,7 +15,7 @@ export const apiGetExpenseReportsFromUser = accessToken => dispatch => {
         }
     }).then(response => response.json()/*dispatch(events.eventAuthFailed())*/)
         .then(json => {
-            dispatch(setExpenseReportsFromUser(_processRequest(json)));
+            dispatch(setExpenseReportsForUser(_processRequest(json)));
         }, error => dispatch(events.eventAuthFailed()));
 }
 

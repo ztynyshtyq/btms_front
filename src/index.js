@@ -11,10 +11,11 @@ import history from "./core/services/history";
 import LoginPage from "./project/auth/pages/login.page";
 import Dashboard from "./project/expense_reports/pages/expense_reports.page";
 import {loadState, saveState} from "./local_storage";
+import {authMiddleware} from "./core/auth/middlewares";
 
 const local_state = loadState();
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const store = createStore(reducers, applyMiddleware(thunkMiddleware, authMiddleware));
 
 /*
 store.subscribe(() => {
