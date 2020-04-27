@@ -45,11 +45,12 @@ const app = (
         country,
         city,
         updateBtms,
-        handlerChange
+        handlerChange,
+        chargeCodeName
     }) => (
     <div className="BTMS_item">
         <div className="btmsHeader">
-            <h3>BTMS #{id} charged on {chargeCode}</h3>
+            <h3>BTMS #{id} charged on {chargeCodeName}</h3>
         </div>
         <div className="btmsContent">
             <div className="BTMS_general">
@@ -153,15 +154,10 @@ const app = (
                         </tfoot>
                     </table>
                     <div className="BTMS_item_controlButtons">
-                        <button className="BTMS_item_controlButtons_cancel" onClick={e => {
-                            handlerChange({id: id, status: "Cancelled"});
-                            updateBtms(id);
-                        }}>Decline
-                        </button>
                         <button className="BTMS_item_controlButtons_confirm" onClick={e => {
                             handlerChange({id: id, status: "Confirmed"});
                             updateBtms(id);
-                        }}>Confirm
+                        }}>Send to Confirmation
                         </button>
                     </div>
                 </div>
