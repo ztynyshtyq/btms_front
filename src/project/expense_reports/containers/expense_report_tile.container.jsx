@@ -1,13 +1,11 @@
 import {connect} from "react-redux";
 import component from "../components/expense_report_tile.component";
-/*
-import updateBtms from "../actions/updateBtms";
-import changeBtms from "../actions/changeBtms";
-*/
 
-const mapStateToProps = (state, ownProps) => ({
-
-});
+const mapStateToProps = (state, ownProps) => {
+    return ({
+        ...state.expenseReports.fromUserRequests[ownProps.expenseReportId]
+    });
+}
 
 const mapDispatchToProps = (dispatch) => ({
     /*updateBtms: (btmsId) => dispatch(updateBtms(btmsId)),

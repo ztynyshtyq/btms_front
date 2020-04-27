@@ -46,13 +46,6 @@ const page = ({username, password, setCredentials, apiAuthAttempt}) => {
                     </div>
                 </div>
             </div>
-            <div className="text-center d-lg-none w-100">
-                <button type="button" className="navbar-toggler dropdown-toggle" data-toggle="collapse"
-                        data-target="#navbar-footer">
-                    <i className="icon-unfold mr-2"/>
-                    Footer
-                </button>
-            </div>
         </div>
     </div>);
 }

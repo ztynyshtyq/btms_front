@@ -11,7 +11,6 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 fromUserRequests: action.expenseReportsFromUser
-
             }
         case actions.SET_FOR_USER_EXPENSE_REPORTS:
             return {
