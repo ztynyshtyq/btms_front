@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    apiSendOnConfirmation: (accessToken, body) => dispatch(apiSendOnConfirmation(accessToken, body)),
+    apiSendOnConfirmation: (accessToken, body) => dispatch(apiSendOnConfirmation(accessToken, JSON.stringify(body))),
     setSingleExpenseReportFromUserRequests: (expenseReport) => dispatch(setSingleExpenseReportFromUserRequests(expenseReport)),
     /*handlerChange: (btmsData) => dispatch(changeBtms(btmsData))*/
 });

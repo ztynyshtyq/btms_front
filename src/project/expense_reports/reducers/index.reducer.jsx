@@ -21,6 +21,7 @@ const reducer = (state = initialState, action) => {
             const newERRequests = state.fromUserRequests.map((item) => {
                 if(item.id === action.expenseReportFromUserRequests.id)
                     return action.expenseReportFromUserRequests
+                return item;
             });
 
             console.log(newERRequests);

@@ -5,11 +5,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-const inputChanges = (e, handlerChange, id) => {
-    handlerChange({
-        id: id,
-        [$(e.target).data('btmsfield')]: $(e.target).val()
-    });
+const inputChanges = (e, handlerChange, expenseReport) => {
+    const newExpenseReport = Object.assign({}, expenseReport, {[$(e.target).data('btmsfield')]: $(e.target).val()})
+
+    handlerChange(newExpenseReport);
 };
 
 const datePickerBeginChanges = (e, handlerChange, id) => {
@@ -50,8 +49,8 @@ const app = (expenseReport) => (
                         <div className="reportingDateBegin">
                             <DatePicker selected={new Date(expenseReport.reportingDateBegin*1000)}
                                         onChange={date => {
-                                            expenseReport.handlerChange({
-                                                id: expenseReport.id,
+                                            expenseReport.setSingleExpenseReportFromUserRequests({
+                                                id: expenseReport,
                                                 "reportingDateBegin": +(new Date(date))
                                             });
                                         }}
@@ -60,10 +59,10 @@ const app = (expenseReport) => (
                             />
                         </div>
                         <div className="reportingDateEnd">
-                            <DatePicker selected={new Date(expenseReport.reportingDateEnd*1000)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateEnd)}
                                         onChange={date => {
-                                            expenseReport.handlerChange({
-                                                id: expenseReport.id,
+                                            expenseReport.setSingleExpenseReportFromUserRequests({
+                                                id: expenseReport,
                                                 "reportingDateEnd": +(new Date(date))
                                             });
                                         }}
@@ -82,7 +81,7 @@ const app = (expenseReport) => (
                         <div className="city">
                             <input type="text" placeholder="city" value={expenseReport.city}
                                    data-btmsfield="city"
-                                   onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
+                                   onChange={e => inputChanges(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
                         </div>
                     </div>
                 </div>
@@ -93,7 +92,7 @@ const app = (expenseReport) => (
                     </div>
                     <div className="BTMS_item_right">
                         <textarea type="text" placeholder="comments" value={expenseReport.comments} data-btmsfield="Comments"
-                               onChange={e => inputChanges(e, expenseReport.handlerChange, expenseReport.id)}/>
+                                  onChange={e => inputChanges(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
                     </div>
                 </div>
 
@@ -118,7 +117,7 @@ const app = (expenseReport) => (
                                     <input type="text" className="amount" value={accountItem.amount}/>
                                 </td>
                                 <td className="comment">
-                                    <text value={accountItem.description} placeholder="comments"/>
+                                    <input value={accountItem.description} placeholder="comments"/>
                                 </td>
                                 <td><i className="icon-attachment"/></td>
                             </tr>
@@ -187,8 +186,8 @@ app.propTypes = {
     country: PropTypes.string,
     city: PropTypes.string,
     status: PropTypes.string.isRequired,
-    chargeCode: PropTypes.string.isRequired,
-    handlerChange: PropTypes.func.isRequired
+    chargeCodeName: PropTypes.string.isRequired,
+    //handlerChange: PropTypes.func.isRequired
 };
 
 
