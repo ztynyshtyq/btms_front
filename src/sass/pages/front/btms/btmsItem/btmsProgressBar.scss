@@ -1,0 +1,89 @@
+﻿.btmsProgressBar {
+  display: inline-block;
+  margin: 0 0 0 30px;
+
+  & h4 {
+    color: $kpmg_primary_font_color;
+    display: block;
+    line-height: 1em;
+    margin: 5px 0 10px;
+  }
+
+  .routeBar {
+
+    & div {
+      display: inline-block;
+      margin: 0 0 0 15px;
+      position: relative;
+      vertical-align: middle;
+
+      & p {
+        margin: 0;
+        font-size: $font_size_secondary;
+
+        &.employeeName {
+          color: $kpmg_primary_font_color
+        }
+
+        &.daysOutstanding {
+          color: $kpmg_secondary_font_color
+        }
+      }
+    }
+
+    & span {
+      border: 2px solid $color_kpmg_semiblue;
+      border-radius: 50%;
+      display: inline-block;
+      height: 45px;
+      margin: 10px 0;
+      position: relative;
+      top: 0;
+      vertical-align: middle;
+      width: 45px;
+
+      &:before {
+        background-color: $color_kpmg_semiblue;
+        content: "";
+        display: block;
+        height: 14px;
+        left: 18px;
+        position: relative;
+        top: -14px;
+        width: 5px;
+      }
+
+      &:after {
+        background-color: $color_kpmg_semiblue;
+        content: "";
+        display: block;
+        height: 12px;
+        left: 18px;
+        position: relative;
+        top: 28px;
+        width: 5px;
+      }
+    }
+
+    &:first-of-type span {
+      margin-top: 0;
+      top: 0;
+
+      &:before {
+        content: none;
+      }
+
+      &:after {
+        top: 42px;
+      }
+    }
+
+    &:last-of-type span {
+      top: 0;
+
+      &:after {
+        content: none;
+      }
+    }
+  }
+}

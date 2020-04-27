@@ -1,0 +1,28 @@
+﻿#ucHeader {
+  background-color: $color_kpmg_blue;
+
+  & div {
+    height: 76px;
+    margin: auto;
+    padding: 25px 0 0 0;
+    width: 1440px;
+
+    & p {
+      color: $color_kpmg_white;
+      font-size: 48px;
+      font-family: $font_heading_kpmg;
+      display: inline-block;
+      line-height: 1em;
+      margin: 0 0 0 20px;
+      position: relative;
+      top: -10px;
+      vertical-align: top;
+    }
+
+    & img {
+      display: inline-block;
+      vertical-align: top;
+      width: 79px;
+    }
+  }
+}
