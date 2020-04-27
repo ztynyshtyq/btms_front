@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import component from "../components/expense_report_tile.component";
 
 const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps.expenseReportId)
     return ({
         ...state.expenseReports.fromUserRequests[ownProps.expenseReportId]
     });

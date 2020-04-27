@@ -14,13 +14,11 @@ import {loadState, saveState} from "./local_storage";
 
 const local_state = loadState();
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const store = createStore(reducers, local_state, applyMiddleware(thunkMiddleware));
 
-/*
 store.subscribe(() => {
     saveState(store.getState())
 })
-*/
 
 ReactDOM.render(
     <Provider store={store}>
