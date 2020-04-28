@@ -3,13 +3,21 @@ import PropTypes from "prop-types";
 import * as $ from "jquery";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import convertSeconds from "../../../core/js_functions/time_converter";
+import setSingleExpenseReportFromUserRequests from "../actions/set_single_expense_report_for_user.action";
+import setAccountingInformationChange from "../actions/set_accounting_information_changes.action";
 
 
 const inputChanges = (e, handlerChange, expenseReport) => {
+    console.log({[$(e.target).data('btmsfield')]: $(e.target).val()})
     const newExpenseReport = Object.assign({}, expenseReport, {[$(e.target).data('btmsfield')]: $(e.target).val()})
 
     handlerChange(newExpenseReport);
 };
+
+const inputChangeHandler = (e, handler, value)=>{
+    handler(value)
+}
 
 const datePickerBeginChanges = (e, handlerChange, id) => {
     handlerChange({
@@ -47,7 +55,7 @@ const app = (expenseReport) => (
                     </div>
                     <div className="BTMS_item_right">
                         <div className="reportingDateBegin">
-                            <DatePicker selected={new Date(expenseReport.reportingDateBegin*1000)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateBegin * 1000)}
                                         onChange={date => {
                                             expenseReport.setSingleExpenseReportFromUserRequests({
                                                 id: expenseReport,
@@ -59,7 +67,7 @@ const app = (expenseReport) => (
                             />
                         </div>
                         <div className="reportingDateEnd">
-                            <DatePicker selected={new Date(expenseReport.reportingDateEnd)}
+                            <DatePicker selected={new Date(expenseReport.reportingDateEnd * 1000)}
                                         onChange={date => {
                                             expenseReport.setSingleExpenseReportFromUserRequests({
                                                 id: expenseReport,
@@ -79,7 +87,7 @@ const app = (expenseReport) => (
                     </div>
                     <div className="BTMS_item_right">
                         <div className="city">
-                            <input type="text" placeholder="city" value={expenseReport.city}
+                            <input type="text" placeholder="city" value={expenseReport.destinationName}
                                    data-btmsfield="city"
                                    onChange={e => inputChanges(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
                         </div>
@@ -91,7 +99,8 @@ const app = (expenseReport) => (
                         <label htmlFor=""><i className="icon-pencil7"/> &nbsp; Comments:</label>
                     </div>
                     <div className="BTMS_item_right">
-                        <textarea type="text" placeholder="comments" value={expenseReport.comments} data-btmsfield="Comments"
+                        <textarea type="text" placeholder="comments" value={expenseReport.comments}
+                                  data-btmsfield="Comments"
                                   onChange={e => inputChanges(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
                     </div>
                 </div>
@@ -114,7 +123,12 @@ const app = (expenseReport) => (
                             <tr>
                                 <td className="statement">{accountItem.code}</td>
                                 <td className="amount">
-                                    <input type="text" className="amount" value={accountItem.amount}/>
+                                    <input
+                                        type="text"
+                                        className="amount"
+                                        value={accountItem.amount}
+                                        onChange = {event => inputChangeHandler(event, setAccountingInformationChange, event.target.value)}
+                                    />
                                 </td>
                                 <td className="comment">
                                     <input value={accountItem.description} placeholder="comments"/>
@@ -126,11 +140,11 @@ const app = (expenseReport) => (
                         <tfoot>
                         <tr>
                             <td className="statement">Total accrued, including:</td>
-                            <td className="amount">60 000</td>
+                            <td className="amount">{expenseReport.totalExpenseStatement}</td>
                         </tr>
                         <tr>
                             <td className="statement">Cash paid</td>
-                            <td className="amount">60 000</td>
+                            <td className="amount">{expenseReport.totalExpenseStatement}</td>
                         </tr>
                         </tfoot>
                     </table>
@@ -144,34 +158,16 @@ const app = (expenseReport) => (
             </div>
             <div className="btmsProgressBar">
                 <h4>Approval information</h4>
-                <div className="routeBar">
-                    <span className="marker"/>
-                    <div>
-                        <p className="employeeName">Ainur Nurgazyeva</p>
-                        <p className="daysOutstanding">2 days</p>
+                {expenseReport.expenseReportRoutes.map(approvalRoute => (
+                    <div className="routeBar">
+                        <span className="marker"/>
+                        <div>
+                            <p className="employeeName">{approvalRoute.name}</p>
+
+                            <p className="daysOutstanding">{convertSeconds((approvalRoute.end_date-approvalRoute.begin_date),'d')}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="routeBar">
-                    <span className="marker"/>
-                    <div>
-                        <p className="employeeName">Yelena Krasilnikova</p>
-                        <p className="daysOutstanding">1 day</p>
-                    </div>
-                </div>
-                <div className="routeBar">
-                    <span className="marker"/>
-                    <div>
-                        <p className="employeeName">Performance manager</p>
-                        <p className="daysOutstanding">5 days</p>
-                    </div>
-                </div>
-                <div className="routeBar">
-                    <span className="marker"/>
-                    <div>
-                        <p className="employeeName">Director</p>
-                        <p className="daysOutstanding">Pending</p>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     </div>

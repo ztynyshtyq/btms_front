@@ -38,6 +38,8 @@ const _processRequest = (data) => {
             managerApproveDate: btmsItem.manager_approve_date / 1000,
             expenseReportAmounts: btmsItem.expense_report_amounts,
             destinationName: btmsItem.destination_name,
+            expenseReportRoutes: btmsItem.expense_report_routes,
+            totalExpenseStatement: btmsItem.expense_report_amounts.map(accountItem => accountItem.amount).reduce((prev, next)=>prev+next),
         });
     });
 }

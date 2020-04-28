@@ -1,9 +1,10 @@
 import React from "react";
+import headerLogo from "../../../img/brand/logo_white.svg"
 
 const app = () => (
     <header id="ucHeader" role="banner">
         <div>
-            {/*<img src="/img/brand/logo_white.svg" alt=""/>*/}
+            <img src={headerLogo} alt=""/>
             <p>BTMS application</p>
         </div>
     </header>

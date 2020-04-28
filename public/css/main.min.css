@@ -130,7 +130,8 @@ ul {
   .ucBTMSList h4 {
     display: inline-block;
     line-height: 50px;
-    vertical-align: top; }
+    vertical-align: top;
+    margin-top: 4px; }
   .ucBTMSList ul {
     display: inline-block;
     height: 58px;

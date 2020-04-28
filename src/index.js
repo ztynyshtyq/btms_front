@@ -10,8 +10,10 @@ import history from "./core/services/history";
 
 import LoginPage from "./project/auth/pages/login.page";
 import Dashboard from "./project/expense_reports/pages/expense_reports.page";
+import ERForUser from "./project/expense_reports/pages/expense_reports_for_user.page"
 import {loadState, saveState} from "./core/services/local_storage";
 import {authMiddleware} from "./core/auth/middlewares";
+
 
 const local_state = loadState();
 console.log(local_state);
@@ -24,6 +26,7 @@ ReactDOM.render(
         <Router history={history}>
             <Route path="/login" component={LoginPage}/>
             <Route path="/dashboard" component={Dashboard}/>
+            <Route path="/er_for_user" component={ERForUser}/>
         </Router>
     </Provider>
     , document.getElementById('root')

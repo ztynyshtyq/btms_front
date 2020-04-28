@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case actions.SET_FROM_USER_EXPENSE_REPORTS:
             return {
                 ...state,
@@ -19,16 +19,22 @@ const reducer = (state = initialState, action) => {
             }
         case actions.SET_SINGLE_EXPENSE_REPORT_FROM_USER_REQUESTS:
             const newERRequests = state.fromUserRequests.map((item) => {
-                if(item.id === action.expenseReportFromUserRequests.id)
+                if (item.id === action.expenseReportFromUserRequests.id)
                     return action.expenseReportFromUserRequests
                 return item;
             });
 
             console.log(newERRequests);
-
             return {
                 ...state,
                 fromUserRequests: newERRequests
+            }
+
+        case actions.SET_ACCOUNTING_INFORMATION_CHANGE:
+            console.log(state.fromUserRequests)
+            return {
+                ...state,
+
             }
         default:
             return state;
