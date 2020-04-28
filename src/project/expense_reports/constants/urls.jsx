@@ -1,4 +1,4 @@
-export const API_BASE_URL = "https://cors-anywhere.herokuapp.com/mobile-test.net/api/btms";
+export const API_BASE_URL = "http://0.0.0.0:8080/mobile-test.net/api/btms";
 export const API_GET_FROM_USER_REQUESTS = API_BASE_URL + "/get_outgoing_reports";
 export const API_GET_FOR_USER_APPROVAL = API_BASE_URL + "/get_incoming_reports";
 export const API_SEND_ON_CONFIRMATION = API_BASE_URL + "/send_on_confirmation";

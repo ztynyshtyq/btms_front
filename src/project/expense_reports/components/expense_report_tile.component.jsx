@@ -3,20 +3,43 @@ import PropTypes from "prop-types";
 import * as $ from "jquery";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import convertSeconds from "../../../core/js_functions/time_converter";
-import setSingleExpenseReportFromUserRequests from "../actions/set_single_expense_report_for_user.action";
-import setAccountingInformationChange from "../actions/set_accounting_information_changes.action";
 
 
-const inputChanges = (e, handlerChange, expenseReport) => {
-    console.log({[$(e.target).data('btmsfield')]: $(e.target).val()})
+const inputChangesTripInfo = (e, handlerChange, expenseReport) => {
     const newExpenseReport = Object.assign({}, expenseReport, {[$(e.target).data('btmsfield')]: $(e.target).val()})
 
     handlerChange(newExpenseReport);
 };
 
-const inputChangeHandler = (e, handler, value)=>{
-    handler(value)
+const inputChangesAccountingInfo = (e, handler, expenseReport, currentId) => {
+    const newExpenseReportAmounts = expenseReport.expenseReportAmounts.map((accountItem) => {
+        if (accountItem.id === currentId)
+            return Object.assign(accountItem, {amount: parseInt(e.target.value)})
+
+        return accountItem
+    });
+
+    const newExpenseReport = Object.assign({}, expenseReport, {
+        expenseReportAmounts: newExpenseReportAmounts,
+        totalExpenseStatement: newExpenseReportAmounts.map((item) => item.amount).reduce((prev, next) => prev + next)
+    })
+
+    handler(newExpenseReport);
+}
+
+const inputChangesAccountingInfoComments = (e, handler, expenseReport, currentId) => {
+    const newExpenseReportAmounts = expenseReport.expenseReportAmounts.map((accountItem) => {
+        if (accountItem.id === currentId)
+            return Object.assign(accountItem, {description: e.target.value})
+
+        return accountItem
+    });
+
+    const newExpenseReport = Object.assign({}, expenseReport, {
+        expenseReportAmounts: newExpenseReportAmounts,
+    })
+
+    handler(newExpenseReport);
 }
 
 const datePickerBeginChanges = (e, handlerChange, id) => {
@@ -87,9 +110,11 @@ const app = (expenseReport) => (
                     </div>
                     <div className="BTMS_item_right">
                         <div className="city">
-                            <input type="text" placeholder="city" value={expenseReport.destinationName}
-                                   data-btmsfield="city"
-                                   onChange={e => inputChanges(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
+                            <input
+                                disabled="disabled"
+                                type="text" placeholder="city" value={expenseReport.destinationName}
+                                data-btmsfield="city"
+                                onChange={e => inputChangesTripInfo(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
                         </div>
                     </div>
                 </div>
@@ -99,9 +124,10 @@ const app = (expenseReport) => (
                         <label htmlFor=""><i className="icon-pencil7"/> &nbsp; Comments:</label>
                     </div>
                     <div className="BTMS_item_right">
-                        <textarea type="text" placeholder="comments" value={expenseReport.comments}
+                        <textarea placeholder="comments" value={expenseReport.comments}
                                   data-btmsfield="Comments"
-                                  onChange={e => inputChanges(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
+                                  rows="4"
+                                  onChange={e => inputChangesTripInfo(e, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport)}/>
                     </div>
                 </div>
 
@@ -124,14 +150,18 @@ const app = (expenseReport) => (
                                 <td className="statement">{accountItem.code}</td>
                                 <td className="amount">
                                     <input
-                                        type="text"
+                                        disabled={(accountItem.code.toLowerCase() === "out of pocket") ? "" : "disabled"}
+                                        min="0"
+                                        type="number"
                                         className="amount"
                                         value={accountItem.amount}
-                                        onChange = {event => inputChangeHandler(event, setAccountingInformationChange, event.target.value)}
+                                        onChange={event => inputChangesAccountingInfo(event, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport, accountItem.id)}
                                     />
                                 </td>
                                 <td className="comment">
-                                    <input value={accountItem.description} placeholder="comments"/>
+                                    <input value={accountItem.description}
+                                           onChange={event => inputChangesAccountingInfoComments(event, expenseReport.setSingleExpenseReportFromUserRequests, expenseReport, accountItem.id)}
+                                           placeholder="comments"/>
                                 </td>
                                 <td><i className="icon-attachment"/></td>
                             </tr>
@@ -163,8 +193,7 @@ const app = (expenseReport) => (
                         <span className="marker"/>
                         <div>
                             <p className="employeeName">{approvalRoute.name}</p>
-
-                            <p className="daysOutstanding">{convertSeconds((approvalRoute.end_date-approvalRoute.begin_date),'d')}</p>
+                            <p className="daysOutstanding">{approvalRoute.duration}</p>
                         </div>
                     </div>
                 ))}

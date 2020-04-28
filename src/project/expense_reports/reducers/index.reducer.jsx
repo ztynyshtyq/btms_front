@@ -1,8 +1,13 @@
 import * as actions from "../constants/actions";
+import * as constants from "../constants/params";
 
 const initialState = {
     fromUserRequests: [],
     forUserApproval: [],
+    currentFilter: {
+        mainFilter : constants.PARAM_FILTER_FROM_USER_REQUESTS,
+        subFilter: ""
+    }
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,17 +29,21 @@ const reducer = (state = initialState, action) => {
                 return item;
             });
 
-            console.log(newERRequests);
             return {
                 ...state,
                 fromUserRequests: newERRequests
             }
 
         case actions.SET_ACCOUNTING_INFORMATION_CHANGE:
-            console.log(state.fromUserRequests)
             return {
                 ...state,
 
+            }
+
+        case actions.SET_FILTER:
+            return {
+                ...state,
+                currentFilter: action.filter,
             }
         default:
             return state;

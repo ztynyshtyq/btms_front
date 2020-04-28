@@ -3,10 +3,11 @@
   font-size: $font-size-secondary;
 
   & textarea {
+    background: #e7e7e7;;
     border: none;
     border-radius: 2px;
     resize: none;
+    vertical-align: top;
     width: 265px;
-    background: #e7e7e7;;
   }
 }

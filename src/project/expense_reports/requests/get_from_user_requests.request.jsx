@@ -3,7 +3,7 @@ import * as urls from "../constants/urls";
 import * as events from "../../../core/auth/events";
 import * as core_events from "../../../core/events";
 import setExpenseReportsFromUser from "../actions/set_expense_reports_from_user.action";
-
+import convertSeconds from "../../../core/js_functions/time_converter";
 
 export const apiGetExpenseReportsFromUser = accessToken => dispatch => {
     dispatch(core_events.eventInitRequest());
@@ -38,8 +38,11 @@ const _processRequest = (data) => {
             managerApproveDate: btmsItem.manager_approve_date / 1000,
             expenseReportAmounts: btmsItem.expense_report_amounts,
             destinationName: btmsItem.destination_name,
-            expenseReportRoutes: btmsItem.expense_report_routes,
-            totalExpenseStatement: btmsItem.expense_report_amounts.map(accountItem => accountItem.amount).reduce((prev, next)=>prev+next),
+            expenseReportRoutes: btmsItem.expense_report_routes.map(route => ({
+                duration: convertSeconds(route.end_date - route.begin_date, "d"),
+                name: route.responsible_user_id
+            })),
+            totalExpenseStatement: btmsItem.expense_report_amounts.map(accountItem => accountItem.amount).reduce((prev, next) => prev + next),
         });
     });
 }

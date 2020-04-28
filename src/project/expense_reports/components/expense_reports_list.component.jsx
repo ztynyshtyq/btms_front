@@ -1,14 +1,13 @@
 import React, {useEffect} from "react";
+import * as constants from "../constants/params";
 import ExpenseReportTile from "../containers/expense_report_tile.container";
-import {NavLink} from "react-router-dom";
 
-const Component = ({apiGetExpenseReportsFromUserRequests, apiGetExpenseReportsForUserApproval, user, expenseReportsFromUserRequests}) => {
+const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetExpenseReportsForUserApproval, user, expenseReportsForUserApproval, expenseReportsFromUserRequests, setFilter}) => {
     // TODO: write middleware in order to change names to correct
     useEffect(() => {
         apiGetExpenseReportsFromUserRequests(user.accessToken);
         apiGetExpenseReportsForUserApproval(user.accessToken);
     }, []);
-
 
     if (expenseReportsFromUserRequests !== undefined)
         return (
@@ -16,29 +15,26 @@ const Component = ({apiGetExpenseReportsFromUserRequests, apiGetExpenseReportsFo
                 <h4>BTMS Requests</h4>
                 <ul>
                     <li>
-                        <button>
-                            <NavLink to={{
-                                pathname:"/er_for_user"
-                            }}>
-                                Requests to me
-                            </NavLink>
+                        <button onClick={(e) => setFilter({
+                            mainFilter: constants.PARAM_FILTER_FOR_USER_APPROVAL,
+                            subFilter: ""
+                        })}>
+                            For my approval
                         </button>
                     </li>
                     <li>
-                        <button>
-                            <NavLink to={{
-                                pathname: "/er_from_user"
-                            }}>
-                                My requests
-                            </NavLink>
+                        <button onClick={(e) => setFilter({
+                            mainFilter: constants.PARAM_FILTER_FROM_USER_REQUESTS,
+                            subFilter: ""
+                        })}>
+                            My requests
                         </button>
                     </li>
                 </ul>
                 <div className="BTMSList">
-
                     {
-                        expenseReportsFromUserRequests.map((item, index) => (
-                            <ExpenseReportTile key={index} expenseReportId={index} />
+                        _filterExpenseReports().map((item, index) => (
+                            <ExpenseReportTile key={index} expenseReportId={index}/>
                         ))}
                 </div>
             </div>
@@ -46,7 +42,15 @@ const Component = ({apiGetExpenseReportsFromUserRequests, apiGetExpenseReportsFo
     else
         return (<p>is loading</p>);
 
+    function _filterExpenseReports() {
+        if(currentFilter.mainFilter === constants.PARAM_FILTER_FROM_USER_REQUESTS)
+            return expenseReportsFromUserRequests;
 
+        if(currentFilter.mainFilter === constants.PARAM_FILTER_FOR_USER_APPROVAL)
+            return expenseReportsForUserApproval;
+
+        return expenseReportsFromUserRequests;
+    }
 }
 
 export default Component;

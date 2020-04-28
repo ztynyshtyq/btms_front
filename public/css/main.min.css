@@ -353,11 +353,12 @@ ul {
   color: #4e4e4e;
   font-size: 14px; }
   .BTMS_general_item.comments textarea {
+    background: #e7e7e7;
     border: none;
     border-radius: 2px;
     resize: none;
-    width: 265px;
-    background: #e7e7e7; }
+    vertical-align: top;
+    width: 265px; }
 
 .btmsProgressBar {
   display: inline-block;
@@ -448,3 +449,8 @@ ul {
 .ucContainer {
   margin: auto;
   width: 1440px; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
