@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import * as $ from "jquery";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const inputChangesTripInfo = (e, handlerChange, expenseReport) => {
@@ -180,7 +182,7 @@ const app = (expenseReport) => (
                     </table>
                     <div className="BTMS_item_controlButtons">
                         <button className="BTMS_item_controlButtons_confirm" onClick={e => {
-                            expenseReport.setSingleExpenseReportFromUserRequests({...expenseReport});
+                            expenseReport.apiSendOnConfirmation(expenseReport.accessToken, expenseReport);
                         }}>Send to Confirmation
                         </button>
                     </div>
@@ -199,7 +201,9 @@ const app = (expenseReport) => (
                 ))}
             </div>
         </div>
+        <ToastContainer />
     </div>
+
 );
 
 

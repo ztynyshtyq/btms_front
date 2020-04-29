@@ -446,6 +446,13 @@ ul {
       text-align: left;
       width: 265px; }
 
+.uc_toast {
+  background-color: whitesmoke; }
+  .uc_toast .Toastify__toast-body {
+    color: #1b5eaa; }
+  .uc_toast .Toastify__progress-bar {
+    background: #1b5eaa; }
+
 .ucContainer {
   margin: auto;
   width: 1440px; }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
-import {Router, Route} from 'react-router-dom'
+import {Router, Route, Redirect} from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import reducers from "./reducers";
@@ -26,7 +26,6 @@ ReactDOM.render(
         <Router history={history}>
             <Route path="/login" component={LoginPage}/>
             <Route path="/dashboard" component={Dashboard}/>
-            <Route path="/er_for_user" component={ERForUser}/>
         </Router>
     </Provider>
     , document.getElementById('root')
