@@ -1,6 +1,5 @@
 import {connect} from "react-redux";
-import component from "../components/expense_report_tile.component";
-import {apiSendOnConfirmation} from "../requests/send_on_confirmation.request";
+import component from "../components/expense_report_for_user_approval_tile.component";
 import setSingleExpenseReportFromUserRequests from "../actions/set_single_expense_report_for_user.action";
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     });
 }
 
+//TODO accept, reject
 const mapDispatchToProps = (dispatch) => ({
     apiSendOnConfirmation: (accessToken, body) => dispatch(apiSendOnConfirmation(accessToken, body)),
     setSingleExpenseReportFromUserRequests: (expenseReport) => dispatch(setSingleExpenseReportFromUserRequests(expenseReport)),

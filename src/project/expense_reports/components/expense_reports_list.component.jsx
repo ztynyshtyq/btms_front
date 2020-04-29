@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import * as constants from "../constants/params";
-import ExpenseReportTile from "../containers/expense_report_tile.container";
+import ExpenseReportFromUserRequestsTile from "../containers/expense_report_from_user_requests_tile.container";
+import ExpenseReportForUserApproval from "../containers/expense_report_from_user_requests_tile.container";
 
 const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetExpenseReportsForUserApproval, user, expenseReportsForUserApproval, expenseReportsFromUserRequests, setFilter}) => {
     // TODO: write middleware in order to change names to correct
@@ -33,9 +34,7 @@ const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetE
                 </ul>
                 <div className="BTMSList">
                     {
-                        _filterExpenseReports().map((item, index) => (
-                            <ExpenseReportTile key={index} expenseReportId={index}/>
-                        ))}
+                        _filterExpenseReports()}
                 </div>
             </div>
         );
@@ -43,11 +42,15 @@ const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetE
         return (<p>is loading</p>);
 
     function _filterExpenseReports() {
-        if(currentFilter.mainFilter === constants.PARAM_FILTER_FROM_USER_REQUESTS)
-            return expenseReportsFromUserRequests;
+        if (currentFilter.mainFilter === constants.PARAM_FILTER_FROM_USER_REQUESTS)
+            return expenseReportsFromUserRequests.map((item, index) => (
+                <ExpenseReportFromUserRequestsTile key={index} expenseReportId={index}/>
+            ));
 
-        if(currentFilter.mainFilter === constants.PARAM_FILTER_FOR_USER_APPROVAL)
-            return expenseReportsForUserApproval;
+        if (currentFilter.mainFilter === constants.PARAM_FILTER_FOR_USER_APPROVAL)
+            return expenseReportsForUserApproval.map((item, index) => (
+                <ExpenseReportForUserApproval key={index} expenseReportId={index}/>
+            ));
 
         return expenseReportsFromUserRequests;
     }
