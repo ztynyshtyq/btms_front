@@ -175,11 +175,11 @@ ul {
     margin: 0 0 10px 0; }
     .ucBTMSList .BTMSList div.BTMS_general > div .BTMS_item_left {
       display: inline-block;
-      text-align: left;
-      width: 100px; }
+      text-align: left; }
     .ucBTMSList .BTMSList div.BTMS_general > div .BTMS_item_right {
       display: inline-block;
       text-align: right;
+      float: right;
       width: 320px; }
     .ucBTMSList .BTMSList div.BTMS_general > div input {
       background-color: #e7e7e7;
@@ -245,6 +245,9 @@ ul {
     border-radius: 2px;
     height: 25px;
     padding: 3px; }
+
+.button_small {
+  width: 100px; }
 
 .BTMS_item_header {
   display: inline-block;
@@ -365,9 +368,19 @@ ul {
   margin: 0 0 0 30px; }
   .btmsProgressBar h4 {
     color: #4e4e4e;
-    display: block;
+    display: inline-block;
     line-height: 1em;
     margin: 5px 0 10px; }
+  .btmsProgressBar .routeBar.active span {
+    border-color: green; }
+    .btmsProgressBar .routeBar.active span:before {
+      background-color: green; }
+  .btmsProgressBar .routeBar.active ~ div span {
+    border-color: #1b5eaa; }
+    .btmsProgressBar .routeBar.active ~ div span:before {
+      background-color: #1b5eaa; }
+    .btmsProgressBar .routeBar.active ~ div span:after {
+      background-color: #1b5eaa; }
   .btmsProgressBar .routeBar div {
     display: inline-block;
     margin: 0 0 0 15px;
@@ -381,7 +394,7 @@ ul {
       .btmsProgressBar .routeBar div p.daysOutstanding {
         color: #afafaf; }
   .btmsProgressBar .routeBar span {
-    border: 2px solid #094d99;
+    border: 2px solid green;
     border-radius: 50%;
     display: inline-block;
     height: 45px;
@@ -391,7 +404,7 @@ ul {
     vertical-align: middle;
     width: 45px; }
     .btmsProgressBar .routeBar span:before {
-      background-color: #094d99;
+      background-color: green;
       content: "";
       display: block;
       height: 14px;
@@ -400,7 +413,7 @@ ul {
       top: -14px;
       width: 5px; }
     .btmsProgressBar .routeBar span:after {
-      background-color: #094d99;
+      background-color: green;
       content: "";
       display: block;
       height: 12px;
@@ -419,6 +432,14 @@ ul {
     top: 0; }
     .btmsProgressBar .routeBar:last-of-type span:after {
       content: none; }
+
+.btmsProgressStatus {
+  margin: 5px 0 0 10px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-color: #00acc1;
+  border-radius: 10px; }
 
 .BTMS_general_item.destination {
   color: #4e4e4e;

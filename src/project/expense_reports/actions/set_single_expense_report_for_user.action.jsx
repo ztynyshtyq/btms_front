@@ -1,8 +1,8 @@
 import * as constants from "../constants/actions";
 
-const setSingleExpenseReportFromUserRequests = (expenseReportFromUserRequests) => ({
-    type: constants.SET_SINGLE_EXPENSE_REPORT_FROM_USER_REQUESTS,
-    expenseReportFromUserRequests
+const setSingleExpenseReportForUserApproval = (expenseReportsForUserApproval) => ({
+    type: constants.SET_SINGLE_EXPENSE_REPORT_FOR_USER_APPROVAL,
+    expenseReportsForUserApproval
 });
 
-export default setSingleExpenseReportFromUserRequests;
+export default setSingleExpenseReportForUserApproval;

@@ -23,24 +23,37 @@ const reducer = (state = initialState, action) => {
                 forUserApproval: action.expenseReportsForUser
             }
         case actions.SET_SINGLE_EXPENSE_REPORT_FROM_USER_REQUESTS:
-            const newERRequests = state.fromUserRequests.map((item) => {
+            const newERRequestsFromUser = state.fromUserRequests.map((item) => {
                 if (item.id === action.expenseReportFromUserRequests.id)
                     return action.expenseReportFromUserRequests
                 return item;
             });
 
+            console.log(state);
+
             return {
                 ...state,
-                fromUserRequests: newERRequests
+                fromUserRequests: newERRequestsFromUser
             }
 
-        case actions.SET_ACCOUNTING_INFORMATION_CHANGE:
+        case actions.SET_SINGLE_EXPENSE_REPORT_FOR_USER_APPROVAL:
+            const newERRequestsForUser = state.forUserApproval.map((item) => {
+                if (item.id === action.expenseReportsForUserApproval.id)
+                    return action.expenseReportsForUserApproval
+                return item;
+            });
+
+            console.log(state);
+
+
             return {
                 ...state,
-
+                forUserApproval: newERRequestsForUser
             }
 
         case actions.SET_FILTER:
+            console.log(state);
+
             return {
                 ...state,
                 currentFilter: action.filter,

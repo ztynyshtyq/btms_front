@@ -1,19 +1,21 @@
 import {connect} from "react-redux";
 import component from "../components/expense_report_for_user_approval_tile.component";
-import setSingleExpenseReportFromUserRequests from "../actions/set_single_expense_report_for_user.action";
+import {apiSendOnApprove} from "../requests/send_approve.request";
+import {apiSendOnReject} from "../requests/send_reject.request";
+import setSingleExpenseReportForUserRequests from "../actions/set_expense_reports_for_user.action";
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
     return ({
-        ...state.expenseReports.fromUserRequests[ownProps.expenseReportId],
+        ...state.expenseReports.forUserApproval[ownProps.expenseReportId],
         accessToken: state.userData.accessToken
     });
 }
 
 //TODO accept, reject
 const mapDispatchToProps = (dispatch) => ({
-    apiSendOnConfirmation: (accessToken, body) => dispatch(apiSendOnConfirmation(accessToken, body)),
-    setSingleExpenseReportFromUserRequests: (expenseReport) => dispatch(setSingleExpenseReportFromUserRequests(expenseReport)),
+    sendApprove: (accessToken, body) => {  console.log(body); return dispatch(apiSendOnApprove(accessToken, body))},
+    sendReject: (accessToken, body) => {  console.log(body);  dispatch(apiSendOnReject(accessToken,body))},
+    setSingleExpenseReportForUserRequests: (expenseReport) => dispatch(setSingleExpenseReportForUserRequests(expenseReport)),
     //setAccountingInformationChange: (newInputData) => dispatch(setAccountingInformationChange(newInputData))
     /*handlerChange: (btmsData) => dispatch(changeBtms(btmsData))*/
 });

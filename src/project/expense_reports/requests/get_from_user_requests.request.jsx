@@ -40,7 +40,8 @@ const _processRequest = (data) => {
             destinationName: btmsItem.destination_name,
             expenseReportRoutes: btmsItem.expense_report_routes.map(route => ({
                 duration: convertSeconds(route.end_date - route.begin_date, "d"),
-                name: route.responsible_user_id
+                name: route.responsible_user_id,
+                approverType: route.name
             })),
             totalExpenseStatement: btmsItem.expense_report_amounts.map(accountItem => accountItem.amount).reduce((prev, next) => prev + next),
         });

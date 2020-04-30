@@ -13,7 +13,7 @@ import Dashboard from "./project/expense_reports/pages/expense_reports.page";
 import ERForUser from "./project/expense_reports/pages/expense_reports_for_user.page"
 import {loadState, saveState} from "./core/services/local_storage";
 import {authMiddleware} from "./core/auth/middlewares";
-
+import * as routes from "./project/expense_reports/constants/routes"
 
 const local_state = loadState();
 console.log(local_state);
@@ -24,8 +24,8 @@ const store = createStore(reducers, local_state, applyMiddleware(thunkMiddleware
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
-            <Route path="/login" component={LoginPage}/>
-            <Route path="/dashboard" component={Dashboard}/>
+            <Route path={routes.ROUTE_TO_LOGIN_PAGE} component={LoginPage}/>
+            <Route path={routes.ROUTE_TO_DASHBOARD} component={Dashboard}/>
         </Router>
     </Provider>
     , document.getElementById('root')

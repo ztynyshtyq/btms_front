@@ -38,12 +38,12 @@
         & .BTMS_item_left {
           display: inline-block;
           text-align: left;
-          width: 100px;
         }
 
         & .BTMS_item_right {
           display: inline-block;
           text-align: right;
+          float: right;
           width: 320px;
         }
 
@@ -136,7 +136,9 @@
     padding: 3px;
   }
 }
-
+.button_small{
+    width: 100px;
+}
 .BTMS_item_header{
   display: inline-block;
   width: 180px;

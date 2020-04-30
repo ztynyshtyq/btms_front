@@ -30,6 +30,7 @@ const inputChangesAccountingInfo = (e, handler, expenseReport, currentId) => {
 }
 
 const inputChangesAccountingInfoComments = (e, handler, expenseReport, currentId) => {
+    console.log(expenseReport)
     const newExpenseReportAmounts = expenseReport.expenseReportAmounts.map((accountItem) => {
         if (accountItem.id === currentId)
             return Object.assign(accountItem, {description: e.target.value})
@@ -181,14 +182,18 @@ const app = (expenseReport) => (
                         </tfoot>
                     </table>
                     <div className="BTMS_item_controlButtons">
-                        <button className="BTMS_item_controlButtons_confirm" onClick={e => {
-                            expenseReport.apiSendOnConfirmation(expenseReport.accessToken, expenseReport);
-                        }}>Send to Confirmation
+                        <button className="BTMS_item_controlButtons_cancel" onClick={e => {
+                            expenseReport.sendReject(expenseReport.accessToken, expenseReport);
+                        }}>Reject
+                        </button>
+                        <button className="BTMS_item_controlButtons_confirm button_small" onClick={e => {
+                            expenseReport.sendApprove(expenseReport.accessToken, expenseReport);
+                        }}>Confirm
                         </button>
                     </div>
                 </div>
             </div>
-            <div className="btmsProgressBar">
+            {/*<div className="btmsProgressBar">
                 <h4>Approval information</h4>
                 {expenseReport.expenseReportRoutes.map(approvalRoute => (
                     <div className="routeBar">
@@ -199,7 +204,7 @@ const app = (expenseReport) => (
                         </div>
                     </div>
                 ))}
-            </div>
+            </div>*/}
         </div>
         <ToastContainer />
     </div>

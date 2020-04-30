@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import * as $ from "jquery";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { ToastContainer } from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -183,25 +183,36 @@ const app = (expenseReport) => (
                     <div className="BTMS_item_controlButtons">
                         <button className="BTMS_item_controlButtons_confirm" onClick={e => {
                             expenseReport.apiSendOnConfirmation(expenseReport.accessToken, expenseReport);
-                        }}>Send to Confirmation
+                        }}>Send on confirmation
                         </button>
                     </div>
                 </div>
             </div>
             <div className="btmsProgressBar">
                 <h4>Approval information</h4>
+                {/*<div className="btmsProgressStatus"></div>*/}
+                <div className={expenseReport.status.toLowerCase() === "wait" ? "routeBar active" : "routeBar"}>
+                    <span className="marker"/>
+                    <div>
+                        <p className="employeeName">{expenseReport.username}</p>
+                        <p className="daysOutstanding">0 days</p>
+                    </div>
+                </div>
                 {expenseReport.expenseReportRoutes.map(approvalRoute => (
-                    <div className="routeBar">
+                    <div
+                        className={(approvalRoute.approverType.toLowerCase() === "manager approve" && expenseReport.status.toLowerCase() === "approved by manager")
+                        || (approvalRoute.approverType.toLowerCase() === "accountant approve" && expenseReport.status.toLowerCase() === "approved by accountant")
+                            ? "routeBar active" : "routeBar"}>
                         <span className="marker"/>
                         <div>
                             <p className="employeeName">{approvalRoute.name}</p>
-                            <p className="daysOutstanding">{approvalRoute.duration}</p>
+                            <p className="daysOutstanding">{approvalRoute.duration} days</p>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-        <ToastContainer />
+        <ToastContainer/>
     </div>
 
 );

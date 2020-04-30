@@ -4,12 +4,36 @@
 
   & h4 {
     color: $kpmg_primary_font_color;
-    display: block;
+    display: inline-block;
     line-height: 1em;
     margin: 5px 0 10px;
   }
 
   .routeBar {
+
+    &.active {
+      & span {
+        &:before {
+          background-color: green;
+        }
+
+        border-color: green;
+      }
+
+      & ~ div span {
+        border-color: $color_kpmg_blue;
+
+        &:before {
+          background-color: $color_kpmg_blue;
+        }
+
+        &:after {
+          background-color: $color_kpmg_blue;
+        }
+      }
+
+
+    }
 
     & div {
       display: inline-block;
@@ -32,7 +56,7 @@
     }
 
     & span {
-      border: 2px solid $color_kpmg_semiblue;
+      border: 2px solid green;
       border-radius: 50%;
       display: inline-block;
       height: 45px;
@@ -42,8 +66,9 @@
       vertical-align: middle;
       width: 45px;
 
+
       &:before {
-        background-color: $color_kpmg_semiblue;
+        background-color: green;
         content: "";
         display: block;
         height: 14px;
@@ -54,7 +79,7 @@
       }
 
       &:after {
-        background-color: $color_kpmg_semiblue;
+        background-color: green;
         content: "";
         display: block;
         height: 12px;
@@ -86,4 +111,13 @@
       }
     }
   }
+}
+
+.btmsProgressStatus {
+  margin: 5px 0 0 10px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-color: #00acc1;
+  border-radius: 10px;
 }

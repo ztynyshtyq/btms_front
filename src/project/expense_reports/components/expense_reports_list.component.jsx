@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import * as constants from "../constants/params";
 import ExpenseReportFromUserRequestsTile from "../containers/expense_report_from_user_requests_tile.container";
-import ExpenseReportForUserApproval from "../containers/expense_report_from_user_requests_tile.container";
+import ExpenseReportForUserApproval from "../containers/expense_report_for_user_approval_tile.container";
 
 const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetExpenseReportsForUserApproval, user, expenseReportsForUserApproval, expenseReportsFromUserRequests, setFilter}) => {
     // TODO: write middleware in order to change names to correct
@@ -42,14 +42,17 @@ const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetE
         return (<p>is loading</p>);
 
     function _filterExpenseReports() {
-        if (currentFilter.mainFilter === constants.PARAM_FILTER_FROM_USER_REQUESTS)
-            return expenseReportsFromUserRequests.map((item, index) => (
-                <ExpenseReportFromUserRequestsTile key={index} expenseReportId={index}/>
-            ));
+        console.log(expenseReportsForUserApproval);
 
         if (currentFilter.mainFilter === constants.PARAM_FILTER_FOR_USER_APPROVAL)
-            return expenseReportsForUserApproval.map((item, index) => (
-                <ExpenseReportForUserApproval key={index} expenseReportId={index}/>
+            console.log(expenseReportsForUserApproval.filter((item) => item.status.toLowerCase() === "wait"));
+            return expenseReportsForUserApproval.filter((item) => item.status.toLowerCase() === "wait").map((item, index) => (
+                <ExpenseReportForUserApproval key={index} expenseReportId={item.id}/>
+            ));
+
+        if (currentFilter.mainFilter === constants.PARAM_FILTER_FROM_USER_REQUESTS)
+            return expenseReportsFromUserRequests.map((item, index) => (
+                <ExpenseReportFromUserRequestsTile key={index} expenseReportId={item.id}/>
             ));
 
         return expenseReportsFromUserRequests;

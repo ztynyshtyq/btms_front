@@ -4,9 +4,8 @@ import {apiSendOnConfirmation} from "../requests/send_on_confirmation.request";
 import setSingleExpenseReportFromUserRequests from "../actions/set_single_expense_report_for_user.action";
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
     return ({
-        ...state.expenseReports.fromUserRequests[ownProps.expenseReportId],
+        ...state.expenseReports.fromUserRequests.filter((item) => item.id === ownProps.expenseReportId),
         accessToken: state.userData.accessToken
     });
 }
