@@ -5,7 +5,7 @@ import setSingleExpenseReportFromUserRequests from "../actions/set_single_expens
 
 const mapStateToProps = (state, ownProps) => {
     return ({
-        ...state.expenseReports.fromUserRequests.filter((item) => item.id === ownProps.expenseReportId),
+        ...state.expenseReports.fromUserRequests[ownProps.expenseReportId],
         accessToken: state.userData.accessToken
     });
 }

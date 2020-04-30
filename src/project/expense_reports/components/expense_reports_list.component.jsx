@@ -42,17 +42,14 @@ const Component = ({currentFilter, apiGetExpenseReportsFromUserRequests, apiGetE
         return (<p>is loading</p>);
 
     function _filterExpenseReports() {
-        console.log(expenseReportsForUserApproval);
-
         if (currentFilter.mainFilter === constants.PARAM_FILTER_FOR_USER_APPROVAL)
-            console.log(expenseReportsForUserApproval.filter((item) => item.status.toLowerCase() === "wait"));
             return expenseReportsForUserApproval.filter((item) => item.status.toLowerCase() === "wait").map((item, index) => (
                 <ExpenseReportForUserApproval key={index} expenseReportId={item.id}/>
             ));
 
         if (currentFilter.mainFilter === constants.PARAM_FILTER_FROM_USER_REQUESTS)
             return expenseReportsFromUserRequests.map((item, index) => (
-                <ExpenseReportFromUserRequestsTile key={index} expenseReportId={item.id}/>
+                <ExpenseReportFromUserRequestsTile key={index} expenseReportId={index}/>
             ));
 
         return expenseReportsFromUserRequests;

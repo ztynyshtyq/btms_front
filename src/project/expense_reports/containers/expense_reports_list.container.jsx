@@ -4,12 +4,15 @@ import {apiGetExpenseReportsFromUser} from "../requests/get_from_user_requests.r
 import {apiGetExpenseReportsForUserApproval} from "../requests/get_for_user_approval.request";
 import setFilter from "../actions/set_filter.action";
 
-const mapStateToProps = state => ({
-    user: state.userData,
-    expenseReportsFromUserRequests: state.expenseReports.fromUserRequests,
-    expenseReportsForUserApproval: state.expenseReports.forUserApproval,
-    currentFilter: state.expenseReports.currentFilter
-});
+const mapStateToProps = state => {
+    console.log(state);
+    return ({
+        user: state.userData,
+        expenseReportsFromUserRequests: state.expenseReports.fromUserRequests,
+        expenseReportsForUserApproval: state.expenseReports.forUserApproval,
+        currentFilter: state.expenseReports.currentFilter
+    });
+}
 
 const mapDispatchToProps = dispatch => ({
     apiGetExpenseReportsFromUserRequests: (accessToken) => dispatch(apiGetExpenseReportsFromUser(accessToken)),

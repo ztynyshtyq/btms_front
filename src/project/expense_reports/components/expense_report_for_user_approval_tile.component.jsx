@@ -30,7 +30,6 @@ const inputChangesAccountingInfo = (e, handler, expenseReport, currentId) => {
 }
 
 const inputChangesAccountingInfoComments = (e, handler, expenseReport, currentId) => {
-    console.log(expenseReport)
     const newExpenseReportAmounts = expenseReport.expenseReportAmounts.map((accountItem) => {
         if (accountItem.id === currentId)
             return Object.assign(accountItem, {description: e.target.value})
@@ -148,6 +147,8 @@ const app = (expenseReport) => (
                         </tr>
                         </thead>
                         <tbody>
+                        {console.log(expenseReport)}
+
                         {expenseReport.expenseReportAmounts.map((accountItem) => (
                             <tr>
                                 <td className="statement">{accountItem.code}</td>

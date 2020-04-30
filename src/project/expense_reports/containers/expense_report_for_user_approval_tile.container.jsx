@@ -6,7 +6,7 @@ import setSingleExpenseReportForUserRequests from "../actions/set_expense_report
 
 const mapStateToProps = (state, ownProps) => {
     return ({
-        ...state.expenseReports.forUserApproval[ownProps.expenseReportId],
+        ...state.expenseReports.forUserApproval.filter((item) => item.id === ownProps.expenseReportId)[0],
         accessToken: state.userData.accessToken
     });
 }
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 //TODO accept, reject
 const mapDispatchToProps = (dispatch) => ({
     sendApprove: (accessToken, body) => {  console.log(body); return dispatch(apiSendOnApprove(accessToken, body))},
-    sendReject: (accessToken, body) => {  console.log(body);  dispatch(apiSendOnReject(accessToken,body))},
+    sendReject: (accessToken, body) => {  console.log(body);  return dispatch(apiSendOnReject(accessToken,body))},
     setSingleExpenseReportForUserRequests: (expenseReport) => dispatch(setSingleExpenseReportForUserRequests(expenseReport)),
     //setAccountingInformationChange: (newInputData) => dispatch(setAccountingInformationChange(newInputData))
     /*handlerChange: (btmsData) => dispatch(changeBtms(btmsData))*/
