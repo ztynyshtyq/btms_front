@@ -8,7 +8,8 @@ const mapStateToProps = (state, props) => {
     return ({
         user: state.userData,
         report: state.expenseReports.forUserApproval
-            .find(report => report.id === state.expenseReports.currentFilter.subFilter.reportId)
+            .find(report => report.id === state.expenseReports.currentFilter.subFilter.reportId),
+        allReportsIds: state.expenseReports.forUserApproval.map(report => report.id)
     });
 }
 

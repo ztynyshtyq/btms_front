@@ -1,6 +1,7 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({isNextable, isPrevable, prevId, nextId}) => {
     return(
         <footer>
             <div className="container">
@@ -8,13 +9,19 @@ const Footer = () => {
                     <div className="col-md-3">
                         <div className="navbar_block">
                             <div className="d-inline-block">
-                                <button className="back"><i className="icon-play"/> Back to list</button>
+                                <NavLink to={"/dashboard"}>
+                                    <button className="back" ><i className="icon-menu7"/> Back to list</button>
+                                </NavLink>
                             </div>
                             <div className="d-inline-block">
-                                <button className="previous"><i className="icon-play"/> Previous</button>
+                                <NavLink to={"/report/to_approve/" + prevId}>
+                                    <button className="previous" disabled={!isPrevable}><i className="icon-arrow-left7"/> Previous</button>
+                                </NavLink>
                             </div>
                             <div className="d-inline-block">
-                                <button className="next"><i className="icon-play"/> Next</button>
+                                <NavLink to={"/report/to_approve/" + nextId}>
+                                    <button className="next" disabled={!isNextable}><i className="icon-arrow-right7"/> Next</button>
+                                </NavLink>
                             </div>
                         </div>
                     </div>

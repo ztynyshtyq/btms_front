@@ -3,14 +3,14 @@ import {useParams} from "react-router-dom";
 import Header from "../blocks/header.block";
 import TripInfo from "../containers/trip_info.block_container";
 import Summary from "../containers/summary.block_container";
-import ControlButtons from "../blocks/control_buttons.block";
-import Footer from "../blocks/footer.block";
+import ControlButtons from "../containers/control_buttons.block_container";
+import Footer from "../containers/footer.block_container";
 import Overlay from "../containers/overlay.block_container";
 import Accounting from "../containers/accounting.block_container";
 import Attachments from "../containers/attachments.block_container";
 import * as params from "../constants/params";
 
-const Page = ({report, setFilter, getExpenseReportsForApproval, user}) => {
+const Page = ({allReportsIds, report, setFilter, getExpenseReportsForApproval, user}) => {
     const reportId = parseInt(useParams().reportId);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Page = ({report, setFilter, getExpenseReportsForApproval, user}) => {
                 reportId: reportId
             }
         })
-    }, []);
+    }, [reportId]);
 
     return (
         <>
@@ -35,7 +35,7 @@ const Page = ({report, setFilter, getExpenseReportsForApproval, user}) => {
                         <div className="col-md-3 left_part">
                             <TripInfo report={report}/>
                             <Summary report={report}/>
-                            <ControlButtons report={report}/>
+                            <ControlButtons report={report} userAccessToken={user.accessToken}/>
                         </div>
                         <div className="col-md-5 mid_part">
                             <Accounting report={report}/>
@@ -46,8 +46,8 @@ const Page = ({report, setFilter, getExpenseReportsForApproval, user}) => {
                     </div>
                 </div>
             </main>
-            <Footer/>
-            <Overlay />
+            <Footer reportId={reportId} allReportsIds={allReportsIds}/>
+            <Overlay/>
         </>
     );
 }
