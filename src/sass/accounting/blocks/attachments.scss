@@ -1,0 +1,42 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.attachments_block {
+  & .block_header {
+    margin: 0 0 43px 0;
+
+    & p {
+      font-size: $font_size_headers;
+    }
+  }
+
+  & .block_content {
+    & .image_wrapper{
+      cursor: pointer;
+      height: 200px;
+      width: 200px;
+
+      & img{
+        display: block;
+        height: 200px;
+        width: 200px;
+        position: relative;
+
+      }
+
+      &:hover:after{
+        background-color: rgba(123, 123,123,0.3);
+        color: $color_primary;
+        content: "\e98f";
+        display: block;
+        font-family: icomoon;
+        font-size: 24px;
+        height: 200px;
+        padding: 160px 0 0 160px;
+        width: 200px;
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+}

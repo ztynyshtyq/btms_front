@@ -1,0 +1,112 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+@import "./../../settings/fonts";
+
+.trip_information_block {
+  & .block_header {
+    margin: 0 0 43px 0;
+
+    & p {
+      font-size: $font_size_headers;
+    }
+  }
+
+  & .block_content {
+    & .inline_input {
+      color: $color_common_text;
+      font-size: $font_size_common_text;
+      margin: 0 0 21px;
+
+      & .component_icon {
+        margin: 0 11px 0 0;
+      }
+
+      & .component_label {
+        margin: 0 30px 0 0;
+        text-align: left;
+        width: 130px;
+      }
+
+      & .component_input {
+        & * {
+          font-size: $font_size_common_text;
+        }
+
+        & input {
+          padding: 0 3px;
+          width: 120px;
+        }
+
+        & .select_picker {
+          min-width: 120px;
+
+          [class$="-placeholder"] {
+            min-width: 120px;
+          }
+
+          [class$="-control"] {
+            background: transparent;
+            border: none;
+            border-bottom: solid 1px $color_input_border;
+            border-radius: 0;
+            min-height: 21px;
+
+            * {
+              color: $color_common_text;
+              font-family: $font_common;
+              font-size: $font_size_common_text;
+            }
+          }
+
+          [class$="-menu"] {
+            left: 140px;
+            top: -12px;
+            * {
+              color: $color_common_text;
+              font-family: $font_common;
+              font-size: $font_size_common_text;
+            }
+          }
+
+          [class$="-ValueContainer"]{
+            height: 21px;
+            min-height: 21px;
+            padding: 0 3px;
+          }
+
+          [class$="-Input"]{
+            margin: 0;
+            padding: 0;
+          }
+
+          * {
+            box-shadow: none;
+            cursor: pointer;
+          }
+        }
+
+        & .date_picker {
+          cursor: pointer;
+        }
+      }
+
+      & * {
+        vertical-align: middle;
+      }
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+
+  // horizontal divider
+  &:after {
+    background-color: $color_divider;
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 31px 0 27px;
+    width: 100%;
+  }
+}

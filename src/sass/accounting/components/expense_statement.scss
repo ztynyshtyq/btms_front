@@ -1,0 +1,51 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.expense_statement_component {
+  & .component_icon {
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    width: 16px;
+  }
+
+  & .component_label {
+    margin: 0 20px 0 0;
+    width: 130px;
+  }
+
+  & .component_input {
+    margin: 0 31px 0 0;
+
+    & input {
+      text-align: right;
+      padding: 0 5px 0 0;
+      width: 90px;
+    }
+  }
+
+  & .component_comment {
+    margin: 0 20px 0 0;
+    width: 180px;
+
+    & p {
+      color: $color_secondary_text;
+      line-height: 1em;
+    }
+  }
+
+  & .component_check {
+    text-align: center;
+    width: 74px;
+
+    & button{
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      color: $color_common_text;
+    }
+  }
+
+  & * {
+    vertical-align: middle;
+  }
+}

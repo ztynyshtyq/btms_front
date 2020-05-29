@@ -140,7 +140,7 @@ const app = (expenseReport) => (
                     <table>
                         <thead>
                         <tr>
-                            <th className="statement">Statement</th>
+                            <th className="statementGroup">Statement</th>
                             <th className="amount"/>
                             <th className="comment" width="150px"/>
                             <th className="file" width="20px"><i className="icon-file-plus"/></th>
@@ -151,7 +151,7 @@ const app = (expenseReport) => (
 
                         {expenseReport.expenseReportAmounts.map((accountItem) => (
                             <tr>
-                                <td className="statement">{accountItem.code}</td>
+                                <td className="statementGroup">{accountItem.code}</td>
                                 <td className="amount">
                                     <input
                                         disabled={(accountItem.code.toLowerCase() === "out of pocket") ? "" : "disabled"}
@@ -173,11 +173,11 @@ const app = (expenseReport) => (
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td className="statement">Total accrued, including:</td>
+                            <td className="statementGroup">Total accrued, including:</td>
                             <td className="amount">{expenseReport.totalExpenseStatement}</td>
                         </tr>
                         <tr>
-                            <td className="statement">Cash paid</td>
+                            <td className="statementGroup">Cash paid</td>
                             <td className="amount">{expenseReport.totalExpenseStatement}</td>
                         </tr>
                         </tfoot>

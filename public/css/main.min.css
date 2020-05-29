@@ -1,478 +1,419 @@
-ul {
-  color: black; }
-
-ul {
-  color: black; }
+@font-face {
+  font-family: "KPMG Cyrillic Extralight";
+  font-weight: 200;
+  src: url("./src/sass/fonts/Kpmg/kpmg_extralight.woff") format("woff"); }
 
 @font-face {
-  font-family: KPMGCyrillic-Extralight;
-  src: url("/fonts/KPMGCyrillic-Extralight-160705.ttf"); }
+  font-family: "KPMG Cyrillic";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./src/sass/fonts/Kpmg/KPMG_Light.woff") format("woff"); }
 
-#ucUsers .ucEmployeeColumn .ucAvatar {
-  cursor: pointer;
-  display: inline-block; }
-  #ucUsers .ucEmployeeColumn .ucAvatar i {
-    border: solid 1px #111;
-    border-radius: 50%;
-    font-size: 42px;
-    padding: 7px;
-    vertical-align: text-top; }
+@font-face {
+  font-family: kpmg_light_bold;
+  src: url("./src/sass/fonts/Kpmg/KPMG_Light_Bold.woff") format("woff"); }
 
-#ucUsers .ucEmployeeColumn .ucName {
-  cursor: pointer;
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: text-top; }
+@font-face {
+  font-family: kpmg_uni_light;
+  src: url("./src/sass/fonts/Kpmg/kpmg_univers_light.woff") format("woff"); }
 
-#ucUsers .ucStatusColumn {
-  text-align: right; }
+@font-face {
+  font-family: "Univers for KPMG";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./src/sass/fonts/Kpmg/Uni.woff") format("woff"); }
 
-#ucNavbar {
-  background-color: #0f417b;
-  text-align: left; }
-  #ucNavbar ul {
-    list-style: none;
-    margin: auto;
-    width: 1440px; }
-    #ucNavbar ul li {
-      display: inline-block;
-      margin: 0 0 0 10px; }
-      #ucNavbar ul li button {
-        background: none;
-        box-shadow: none;
-        border: none;
-        color: #dedede;
-        cursor: pointer;
-        display: inline-block;
-        height: 45px;
-        line-height: 45px;
-        margin: 0 0 2px;
-        padding: 0 5px;
-        text-decoration: none; }
-        #ucNavbar ul li button.ucSelectedFilter {
-          border-bottom: solid 3px #fefefe;
-          color: #fefefe; }
-        #ucNavbar ul li button:hover {
-          border-bottom: solid 3px #fefefe; }
-        #ucNavbar ul li button:focus {
-          outline: 0; }
+@font-face {
+  font-family: kpmg_uni_bold;
+  src: url("./src/sass/fonts/Kpmg/Uni_Bold.woff") format("woff"); }
 
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
+ul {
+  color: black; }
+
+ul {
+  color: black; }
+
+/*
+$font_size_primary: 16px;
+$font_size_secondary: 14px;
+*/
+body {
+  color: #4e4e4e; }
+
+div {
+  font-size: 0; }
+
+p, a {
+  font-family: "Univers for KPMG";
+  font-size: 14px;
+  margin: 0; }
+
+input {
+  background-color: transparent;
   border: none;
-  cursor: pointer; }
+  border-bottom: 1px #797979 solid;
+  font-family: "Univers for KPMG";
+  font-size: 14px;
+  outline: none; }
+  input[disabled] {
+    border-bottom: none;
+    color: #4e4e4e; }
 
-.dropdown {
-  position: relative;
-  display: inline-block; }
+main, footer {
+  padding-top: 20px; }
 
-.dropdown-content {
-  display: none;
+button {
+  font-family: "Univers for KPMG"; }
+  button:focus {
+    outline: none; }
+
+ul {
+  margin: 0; }
+
+input, p, ul {
+  color: #4e4e4e; }
+
+header {
+  background-color: #1b5eaa;
+  height: 77px;
+  padding: 20px 0; }
+  header p {
+    color: #fff;
+    font-family: "KPMG Cyrillic Extralight";
+    font-size: 48px;
+    line-height: 43px; }
+  header .logo {
+    margin: 0 30px 0 0; }
+  header * {
+    vertical-align: middle; }
+
+main .statusbar {
+  height: 50px;
+  margin: 0 0 10px; }
+
+.container {
+  display: block;
+  padding: 0 20px;
+  width: 1440px; }
+
+.left_part:after {
+  background: #e7e7e7;
+  bottom: 0;
+  content: "";
+  display: block;
   position: absolute;
   right: 0;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1; }
+  top: 0;
+  width: 1px; }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block; }
+.right_part:before {
+  background: #e7e7e7;
+  bottom: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px; }
 
-.dropdown-content a:hover {
-  background-color: #f1f1f1; }
+@media (min-width: 1200px) {
+  .container {
+    display: block;
+    max-width: 1440px; } }
 
-.dropdown:hover .dropdown-content {
-  display: block; }
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    display: block;
+    max-width: 700px; } }
 
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41; }
+.trip_information_block .block_header {
+  margin: 0 0 43px 0; }
+  .trip_information_block .block_header p {
+    font-size: 18px; }
 
-#ucHeader {
-  background-color: #1b5eaa; }
-  #ucHeader div {
-    height: 76px;
-    margin: auto;
-    padding: 25px 0 0 0;
-    width: 1440px; }
-    #ucHeader div p {
-      color: #fefefe;
-      font-size: 48px;
-      font-family: KPMGCyrillic-Extralight;
-      display: inline-block;
-      line-height: 1em;
-      margin: 0 0 0 20px;
-      position: relative;
-      top: -10px;
-      vertical-align: top; }
-    #ucHeader div img {
-      display: inline-block;
-      vertical-align: top;
-      width: 79px; }
-
-#ucLeftToolbar {
-  border-right: solid 1px #cecece;
-  display: inline-block;
-  padding: 20px 0 0 0;
-  width: 300px; }
-
-.ucBTMSList {
-  display: inline-block;
-  height: auto;
-  padding: 0 0 0 20px;
-  vertical-align: top;
-  width: 1440px; }
-  .ucBTMSList h4 {
-    display: inline-block;
-    line-height: 50px;
-    vertical-align: top;
-    margin-top: 4px; }
-  .ucBTMSList ul {
-    display: inline-block;
-    height: 58px;
-    list-style: none;
-    margin: 0 0 0 20px;
-    vertical-align: top; }
-    .ucBTMSList ul li {
-      display: inline-block;
-      margin: 0 0 0 15px;
-      height: 100%; }
-      .ucBTMSList ul li button {
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-        cursor: pointer;
-        height: 100%; }
-        .ucBTMSList ul li button:hover {
-          background-color: #dedede; }
-
-.ucBTMSList .BTMSList .BTMS_item {
-  background-color: #f5f5f5;
-  border-radius: 2px;
-  margin: 0 0 15px 0; }
-  .ucBTMSList .BTMSList .BTMS_item .btmsContent {
-    padding: 10px 10px 10px 15px; }
-  .ucBTMSList .BTMSList .BTMS_item .btmsHeader {
-    background-color: #094d99;
-    height: 40px;
-    padding: 10px 10px 10px 15px; }
-  .ucBTMSList .BTMSList .BTMS_item h3 {
-    color: white; }
-
-.ucBTMSList .BTMSList div.BTMS_general {
-  display: inline-block;
-  vertical-align: top; }
-  .ucBTMSList .BTMSList div.BTMS_general h4 {
-    color: #4e4e4e;
-    line-height: 1em;
-    margin: 5px 0 10px; }
-  .ucBTMSList .BTMSList div.BTMS_general > div {
-    margin: 0 0 10px 0; }
-    .ucBTMSList .BTMSList div.BTMS_general > div .BTMS_item_left {
-      display: inline-block;
-      text-align: left; }
-    .ucBTMSList .BTMSList div.BTMS_general > div .BTMS_item_right {
-      display: inline-block;
-      text-align: right;
-      float: right;
-      width: 320px; }
-    .ucBTMSList .BTMSList div.BTMS_general > div input {
-      background-color: #e7e7e7;
+.trip_information_block .block_content .inline_input {
+  color: #4e4e4e;
+  font-size: 14px;
+  margin: 0 0 21px; }
+  .trip_information_block .block_content .inline_input .component_icon {
+    margin: 0 11px 0 0; }
+  .trip_information_block .block_content .inline_input .component_label {
+    margin: 0 30px 0 0;
+    text-align: left;
+    width: 130px; }
+  .trip_information_block .block_content .inline_input .component_input * {
+    font-size: 14px; }
+  .trip_information_block .block_content .inline_input .component_input input {
+    padding: 0 3px;
+    width: 120px; }
+  .trip_information_block .block_content .inline_input .component_input .select_picker {
+    min-width: 120px; }
+    .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-placeholder"] {
+      min-width: 120px; }
+    .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-control"] {
+      background: transparent;
       border: none;
-      border-radius: 2px;
-      height: 25px;
-      padding: 3px; }
-      .ucBTMSList .BTMSList div.BTMS_general > div input:focus {
-        outline: none; }
+      border-bottom: solid 1px #797979;
+      border-radius: 0;
+      min-height: 21px; }
+      .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-control"] * {
+        color: #4e4e4e;
+        font-family: "Univers for KPMG";
+        font-size: 14px; }
+    .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-menu"] {
+      left: 140px;
+      top: -12px; }
+      .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-menu"] * {
+        color: #4e4e4e;
+        font-family: "Univers for KPMG";
+        font-size: 14px; }
+    .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-ValueContainer"] {
+      height: 21px;
+      min-height: 21px;
+      padding: 0 3px; }
+    .trip_information_block .block_content .inline_input .component_input .select_picker [class$="-Input"] {
+      margin: 0;
+      padding: 0; }
+    .trip_information_block .block_content .inline_input .component_input .select_picker * {
+      box-shadow: none;
+      cursor: pointer; }
+  .trip_information_block .block_content .inline_input .component_input .date_picker {
+    cursor: pointer; }
+  .trip_information_block .block_content .inline_input * {
+    vertical-align: middle; }
+  .trip_information_block .block_content .inline_input:last-of-type {
+    margin: 0; }
 
-.BTMS_item_controlButtons {
-  margin: 15px 0 0 0;
-  text-align: right; }
+.trip_information_block:after {
+  background-color: #e7e7e7;
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 31px 0 27px;
+  width: 100%; }
 
-.BTMS_item_controlButtons_confirm {
-  background-color: #1b5eaa;
-  box-shadow: none;
-  border: none;
-  border-radius: 2px;
-  color: #fefefe;
-  cursor: pointer;
-  height: 25px;
-  margin: 0 0 0 10px;
-  width: 150px; }
-  .BTMS_item_controlButtons_confirm:hover {
-    background-color: #094d99; }
-  .BTMS_item_controlButtons_confirm:active {
-    background-color: #0f417b;
-    left: 1px;
-    position: relative;
-    top: 1px; }
-
-.BTMS_item_controlButtons_cancel {
-  background-color: transparent;
-  border: solid 1px #343434;
-  border-radius: 2px;
-  color: #343434;
-  cursor: pointer;
-  height: 25px;
-  width: 100px; }
-  .BTMS_item_controlButtons_cancel:hover {
-    background-color: #545454;
-    color: #fefefe; }
-  .BTMS_item_controlButtons_cancel:active {
-    background-color: #434343;
-    color: #fefefe;
-    left: 1px;
-    position: relative;
-    top: 1px; }
-
-.BTMS_general_item.chargeCode input {
-  width: 300px; }
-
-.BTMS_general_item.project_manager input {
-  width: 300px; }
-
-.BTMS_item_chargeCode {
-  display: inline-block;
-  margin: 0 0 0 20px; }
-  .BTMS_item_chargeCode input {
-    background-color: #e7e7e7;
-    border: none;
-    border-radius: 2px;
-    height: 25px;
-    padding: 3px; }
-
-.button_small {
-  width: 100px; }
-
-.BTMS_item_header {
-  display: inline-block;
-  width: 180px; }
-
-.BTMS_general_item.period .reportingDateBegin input {
-  margin: 0 10px 0 0; }
-
-.BTMS_accounting {
-  display: inline-block;
-  margin: 0 0 0 30px;
-  vertical-align: top; }
-  .BTMS_accounting h4 {
+.summary_block {
+  margin: 0 0 120px; }
+  .summary_block .block_header {
+    margin: 0 0 30px 0; }
+    .summary_block .block_header p {
+      font-size: 18px; }
+  .summary_block .block_content .inline_input {
     color: #4e4e4e;
-    line-height: 1em;
-    margin: 5px 0 10px; }
-  .BTMS_accounting table {
-    border-collapse: collapse;
-    display: inline-block;
-    padding: 5px 0;
-    width: 570px; }
-  .BTMS_accounting thead {
-    border-bottom: solid 1px #cecece;
-    display: inline-block;
-    width: 100%; }
-    .BTMS_accounting thead th {
-      color: #4e4e4e;
-      font-size: 14px;
-      font-weight: 400; }
-      .BTMS_accounting thead th.statement {
-        text-align: left;
-        width: 200px; }
-      .BTMS_accounting thead th.amount {
-        color: #4e4e4e;
-        width: 100px; }
-      .BTMS_accounting thead th.comment {
-        color: #4e4e4e;
-        width: 250px; }
-  .BTMS_accounting tbody {
-    display: inline-block;
-    padding: 5px 0;
-    width: 100%; }
-    .BTMS_accounting tbody td {
-      color: #4e4e4e;
-      font-size: 14px;
-      font-weight: 100; }
-      .BTMS_accounting tbody td.statement {
-        display: inline-block;
-        text-align: left;
-        width: 200px; }
-      .BTMS_accounting tbody td.amount {
-        color: #4e4e4e;
-        width: 100px; }
-        .BTMS_accounting tbody td.amount input {
-          text-align: right;
-          width: 100px; }
-      .BTMS_accounting tbody td.comment {
-        width: 250px; }
-        .BTMS_accounting tbody td.comment input {
-          color: #afafaf;
-          text-align: right;
-          width: 250px; }
-  .BTMS_accounting tfoot {
-    border-top: 1px solid #cecece;
-    display: inline-block;
     font-size: 14px;
-    font-weight: 600;
-    width: 100%; }
-    .BTMS_accounting tfoot td.statement {
+    margin: 0 0 21px; }
+    .summary_block .block_content .inline_input .component_icon {
+      margin: 0 11px 0 0; }
+    .summary_block .block_content .inline_input .component_label {
+      margin: 0 30px 0 0;
       text-align: left;
-      width: 200px; }
-    .BTMS_accounting tfoot td.amount {
+      width: 130px; }
+    .summary_block .block_content .inline_input .component_input input {
+      padding: 0 3px;
       text-align: right;
       width: 100px; }
-  .BTMS_accounting input {
-    background-color: #e7e7e7;
+    .summary_block .block_content .inline_input .component_input.recoverable input {
+      color: red; }
+    .summary_block .block_content .inline_input .component_input.payable input {
+      color: green; }
+    .summary_block .block_content .inline_input * {
+      vertical-align: middle; }
+    .summary_block .block_content .inline_input:last-of-type {
+      margin: 0; }
+
+.control_buttons_block .block_content > div {
+  margin: 0 50px 0 0; }
+  .control_buttons_block .block_content > div button {
     border: none;
-    border-radius: 1px;
-    height: 25px;
-    padding: 0 0 0 2px;
-    width: 150px; }
+    box-shadow: none;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    width: 120px; }
+    .control_buttons_block .block_content > div button.accept {
+      background-color: #1b5eaa;
+      color: #fff; }
+    .control_buttons_block .block_content > div button.reject {
+      background: transparent;
+      border: solid 1px #adadad;
+      border-radius: 2px; }
+  .control_buttons_block .block_content > div:last-of-type {
+    margin: 0; }
 
-.BTMS_general_item.period {
-  color: #4e4e4e;
-  font-size: 14px; }
+.accounting_block .block_header {
+  margin: 0 0 11px; }
+  .accounting_block .block_header p {
+    font-size: 18px; }
 
-.BTMS_general_item.period .reportingDateBegin, .BTMS_general_item.period .reportingDateEnd {
-  display: inline-block; }
-  .BTMS_general_item.period .reportingDateBegin input, .BTMS_general_item.period .reportingDateEnd input {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    width: 100px; }
-  .BTMS_general_item.period .reportingDateBegin span.ucDatePicker, .BTMS_general_item.period .reportingDateEnd span.ucDatePicker {
-    background-color: #d7d7d7;
-    border-right: solid 1px #cecece;
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
-    cursor: pointer;
-    display: inline-block;
-    height: 25px;
-    padding: 8px;
-    vertical-align: top;
-    width: 25px; }
-
-.BTMS_general_item.comments {
-  color: #4e4e4e;
-  font-size: 14px; }
-  .BTMS_general_item.comments textarea {
-    background: #e7e7e7;
+.accounting_block .block_controlbar {
+  margin: 0 0 12px; }
+  .accounting_block .block_controlbar > div {
+    width: 50%; }
+  .accounting_block .block_controlbar button {
+    background: none;
     border: none;
-    border-radius: 2px;
-    resize: none;
-    vertical-align: top;
-    width: 265px; }
+    box-shadow: none;
+    color: #1b5eaa;
+    font-size: 12px;
+    padding: 0;
+    text-decoration: underline; }
 
-.btmsProgressBar {
-  display: inline-block;
-  margin: 0 0 0 30px; }
-  .btmsProgressBar h4 {
-    color: #4e4e4e;
-    display: inline-block;
-    line-height: 1em;
-    margin: 5px 0 10px; }
-  .btmsProgressBar .routeBar.active span {
-    border-color: green; }
-    .btmsProgressBar .routeBar.active span:before {
-      background-color: green; }
-  .btmsProgressBar .routeBar.active ~ div span {
-    border-color: #1b5eaa; }
-    .btmsProgressBar .routeBar.active ~ div span:before {
-      background-color: #1b5eaa; }
-    .btmsProgressBar .routeBar.active ~ div span:after {
-      background-color: #1b5eaa; }
-  .btmsProgressBar .routeBar div {
-    display: inline-block;
-    margin: 0 0 0 15px;
-    position: relative;
-    vertical-align: middle; }
-    .btmsProgressBar .routeBar div p {
-      margin: 0;
-      font-size: 14px; }
-      .btmsProgressBar .routeBar div p.employeeName {
-        color: #4e4e4e; }
-      .btmsProgressBar .routeBar div p.daysOutstanding {
-        color: #afafaf; }
-  .btmsProgressBar .routeBar span {
-    border: 2px solid green;
-    border-radius: 50%;
-    display: inline-block;
-    height: 45px;
-    margin: 10px 0;
-    position: relative;
-    top: 0;
-    vertical-align: middle;
-    width: 45px; }
-    .btmsProgressBar .routeBar span:before {
-      background-color: green;
-      content: "";
-      display: block;
-      height: 14px;
-      left: 18px;
-      position: relative;
-      top: -14px;
-      width: 5px; }
-    .btmsProgressBar .routeBar span:after {
-      background-color: green;
-      content: "";
-      display: block;
-      height: 12px;
-      left: 18px;
-      position: relative;
-      top: 28px;
-      width: 5px; }
-  .btmsProgressBar .routeBar:first-of-type span {
-    margin-top: 0;
-    top: 0; }
-    .btmsProgressBar .routeBar:first-of-type span:before {
-      content: none; }
-    .btmsProgressBar .routeBar:first-of-type span:after {
-      top: 42px; }
-  .btmsProgressBar .routeBar:last-of-type span {
-    top: 0; }
-    .btmsProgressBar .routeBar:last-of-type span:after {
-      content: none; }
-
-.btmsProgressStatus {
-  margin: 5px 0 0 10px;
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  background-color: #00acc1;
-  border-radius: 10px; }
-
-.BTMS_general_item.destination {
-  color: #4e4e4e;
-  font-size: 14px; }
-  .BTMS_general_item.destination .country {
-    display: inline-block;
-    width: 155px; }
-    .BTMS_general_item.destination .country input {
-      background-color: #e7e7e7;
-      border: none;
-      border-radius: 2px;
-      height: 25px;
-      padding: 3px 10px 3px 3px;
-      text-align: right;
+.accounting_block .block_content ul {
+  position: relative; }
+  .accounting_block .block_content ul li {
+    min-height: 22px;
+    margin: 22px 0 0; }
+  .accounting_block .block_content ul.accounting_list > li:first-of-type {
+    margin: 0; }
+  .accounting_block .block_content ul.not_empty > li {
+    padding: 0 0 0 30px; }
+    .accounting_block .block_content ul.not_empty > li .component_label {
+      font-style: italic;
+      margin: 0 10px 0 0;
       width: 110px; }
-  .BTMS_general_item.destination .city {
+    .accounting_block .block_content ul.not_empty > li .component_input input {
+      font-style: italic; }
+    .accounting_block .block_content ul.not_empty > li:before {
+      background-image: linear-gradient(to right, #afafaf 50%, rgba(255, 255, 255, 0) 0%);
+      background-position: bottom;
+      background-size: 10px 1px;
+      background-repeat: repeat-x;
+      content: "";
+      display: block;
+      height: 1px;
+      left: 5px;
+      position: relative;
+      top: 10px;
+      width: 15px; }
+  .accounting_block .block_content ul.not_empty:before {
+    background-image: linear-gradient(#afafaf 50%, rgba(255, 255, 255, 0) 0%);
+    background-position: right;
+    background-size: 1px 10px;
+    background-repeat: repeat-y;
+    bottom: 15px;
+    content: "";
     display: inline-block;
-    width: 265px; }
-    .BTMS_general_item.destination .city input {
-      background-color: #e7e7e7;
-      border: none;
-      border-radius: 2px;
-      height: 25px;
-      padding: 3px 10px 3px 3px;
-      text-align: left;
-      width: 265px; }
+    left: 35px;
+    position: absolute;
+    top: 25px;
+    width: 2px; }
 
-.uc_toast {
-  background-color: whitesmoke; }
-  .uc_toast .Toastify__toast-body {
-    color: #1b5eaa; }
-  .uc_toast .Toastify__progress-bar {
-    background: #1b5eaa; }
+.attachments_block .block_header {
+  margin: 0 0 43px 0; }
+  .attachments_block .block_header p {
+    font-size: 18px; }
+
+.attachments_block .block_content .image_wrapper {
+  cursor: pointer;
+  height: 200px;
+  width: 200px; }
+  .attachments_block .block_content .image_wrapper img {
+    display: block;
+    height: 200px;
+    width: 200px;
+    position: relative; }
+  .attachments_block .block_content .image_wrapper:hover:after {
+    background-color: rgba(123, 123, 123, 0.3);
+    color: #1b5eaa;
+    content: "\e98f";
+    display: block;
+    font-family: icomoon;
+    font-size: 24px;
+    height: 200px;
+    padding: 160px 0 0 160px;
+    width: 200px;
+    position: absolute;
+    top: 0; }
+
+.navbar_block div {
+  margin: 0 20px 0 0; }
+  .navbar_block div button {
+    background: transparent;
+    border: solid 1px #adadad;
+    border-radius: 2px;
+    box-shadow: none;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px; }
+    .navbar_block div button * {
+      vertical-align: middle; }
+  .navbar_block div:last-of-type {
+    margin: 0; }
+
+.expense_statement_component .component_icon {
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  width: 16px; }
+
+.expense_statement_component .component_label {
+  margin: 0 20px 0 0;
+  width: 130px; }
+
+.expense_statement_component .component_input {
+  margin: 0 31px 0 0; }
+  .expense_statement_component .component_input input {
+    text-align: right;
+    padding: 0 5px 0 0;
+    width: 90px; }
+
+.expense_statement_component .component_comment {
+  margin: 0 20px 0 0;
+  width: 180px; }
+  .expense_statement_component .component_comment p {
+    color: #afafaf;
+    line-height: 1em; }
+
+.expense_statement_component .component_check {
+  text-align: center;
+  width: 74px; }
+  .expense_statement_component .component_check button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #4e4e4e; }
+
+.expense_statement_component * {
+  vertical-align: middle; }
+
+div.react-datepicker {
+  border-radius: 1px;
+  border-color: #adadad;
+  font-family: "Univers for KPMG"; }
+  div.react-datepicker .react-datepicker__current-month {
+    font-weight: 400; }
+  div.react-datepicker .react-datepicker__day--selected {
+    background-color: #1b5eaa;
+    border-radius: 1px; }
+  div.react-datepicker .react-datepicker__day--outside-month {
+    color: #afafaf; }
+
+.overlay_component {
+  background-color: rgba(0, 0, 0, 0.95);
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 2; }
+  .overlay_component button.close {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px; }
+    .overlay_component button.close i {
+      font-size: 36px; }
+  .overlay_component img {
+    left: 50%;
+    max-height: 800px;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%); }
+  .overlay_component.none {
+    display: none; }
 
 .ucContainer {
   margin: auto;

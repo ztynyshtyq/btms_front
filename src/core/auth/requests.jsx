@@ -20,26 +20,13 @@ export const apiAuthRequest = (login, pass) => dispatch => {
         }, error => dispatch(events.eventAuthFailed()));
 }
 
-const _processRequest = (data) => {
-    console.log(Object.assign({}, data.user, {
-        firstName: data.user.first_name,
-        secondName: data.user.second_name,
-        accessToken: data.user.access_token,
-        firebaseToken: data.user.firebase_token,
-        phoneNumber: data.user.phone_number,
-        birthDate: data.user.birth_date,
-        marsId: data.user.mars_id,
-        organizationId: data.user.organization_id,
-    }));
-
-    return Object.assign({}, data.user, {
-        firstName: data.user.first_name,
-        secondName: data.user.second_name,
-        accessToken: data.user.access_token,
-        firebaseToken: data.user.firebase_token,
-        phoneNumber: data.user.phone_number,
-        birthDate: data.user.birth_date,
-        marsId: data.user.mars_id,
-        organizationId: data.user.organization_id,
-    });
-}
+const _processRequest = (data) => ({
+    firstName: data.user.first_name,
+    secondName: data.user.second_name,
+    accessToken: data.user.access_token,
+    firebaseToken: data.user.firebase_token,
+    phoneNumber: data.user.phone_number,
+    birthDate: data.user.birth_date,
+    marsId: data.user.mars_id,
+    organizationId: data.user.organization_id,
+});

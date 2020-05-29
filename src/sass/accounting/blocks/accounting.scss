@@ -1,0 +1,91 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.accounting_block {
+  & .block_header {
+    margin: 0 0 11px;
+
+    & p {
+      font-size: $font_size_headers;
+    }
+  }
+
+  & .block_controlbar {
+    margin: 0 0 12px;
+
+    & > div {
+      width: 50%;
+    }
+
+    & button {
+      background: none;
+      border: none;
+      box-shadow: none;
+      color: $color_primary;
+      font-size: $font_size_secondary_text;
+      padding: 0;
+      text-decoration: underline;
+    }
+  }
+
+  & .block_content {
+    & ul {
+      position: relative;
+
+      & li {
+        min-height: 22px;
+        margin: 22px 0 0;
+      }
+
+      &.accounting_list {
+        & > li:first-of-type {
+          margin: 0;
+        }
+      }
+
+      &.not_empty {
+        &>li {
+          padding: 0 0 0 30px;
+
+          & .component_label{
+            font-style: italic;
+            margin: 0 10px 0 0;
+            width: 110px;
+          }
+
+          & .component_input input{
+            font-style: italic;
+          }
+
+          &:before {
+            background-image: linear-gradient(to right, $color_secondary_text 50%, rgba(255, 255, 255, 0) 0%);
+            background-position: bottom;
+            background-size: 10px 1px;
+            background-repeat: repeat-x;
+            content: "";
+            display: block;
+            height: 1px;
+            left: 5px;
+            position: relative;
+            top: 10px;
+            width: 15px;
+          }
+        }
+
+        &:before {
+          background-image: linear-gradient($color_secondary_text 50%, rgba(255, 255, 255, 0) 0%);
+          background-position: right;
+          background-size: 1px 10px;
+          background-repeat: repeat-y;
+          bottom: 15px;
+          content: "";
+          display: inline-block;
+          left: 35px;
+          position: absolute;
+          top: 25px;
+          width: 2px;
+        }
+      }
+    }
+  }
+}

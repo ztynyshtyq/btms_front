@@ -1,0 +1,56 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.summary_block {
+  margin: 0 0 120px;
+
+  & .block_header {
+    margin: 0 0 30px 0;
+
+    & p {
+      font-size: $font_size_headers;
+    }
+  }
+
+  & .block_content {
+    & .inline_input {
+      color: $color_common_text;
+      font-size: $font_size_common_text;
+      margin: 0 0 21px;
+
+      & .component_icon{
+        margin: 0 11px 0 0;
+      }
+
+      & .component_label{
+        margin: 0 30px 0 0;
+        text-align: left;
+        width: 130px;
+      }
+
+      & .component_input{
+        & input {
+          padding: 0 3px;
+          text-align: right;
+          width: 100px;
+        }
+
+        &.recoverable input {
+          color: red;
+        }
+
+        &.payable input{
+          color: green;
+        }
+      }
+
+      & * {
+        vertical-align: middle;
+      }
+
+      &:last-of-type{
+        margin: 0;
+      }
+    }
+  }
+}

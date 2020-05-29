@@ -1,0 +1,32 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.control_buttons_block {
+  & .block_content>div{
+    margin: 0 50px 0 0;
+
+    & button{
+      border: none;
+      box-shadow: none;
+      font-size: $font_size_common_text;
+      height: 24px;
+      line-height: 24px;
+      width: 120px;
+
+      &.accept{
+        background-color: $color_primary;
+        color: $color_white;
+      }
+
+      &.reject{
+        background: transparent;
+        border: solid 1px $color_borders;
+        border-radius: 2px;
+      }
+    }
+
+    &:last-of-type{
+      margin: 0;
+    }
+  }
+}

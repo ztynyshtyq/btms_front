@@ -13,6 +13,9 @@ export const loadState = () => {
 export const saveState = state => {
     try {
         const serializedState = JSON.stringify(state);
+        console.log("state is saved in local storage");
         localStorage.setItem("state", serializedState);
-    } catch (err) {}
+    } catch (err) {
+        console.log(err);
+    }
 };

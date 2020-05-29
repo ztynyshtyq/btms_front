@@ -1,0 +1,13 @@
+﻿@import "./../settings/colors";
+@import "./../settings/fonts";
+
+main{
+  & .statusbar{
+    height: 50px;
+    margin: 0 0 10px;
+  }
+
+  & .content{
+
+  }
+}

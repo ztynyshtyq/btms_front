@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
+	<meta name="description" content="Web site created using create-react-app" />
+	<link rel="stylesheet" href="css/libs/bootstrap.min.css">
+	<link rel="stylesheet" href="css/libs/bootstrap.limitless.css">
+	<link rel="stylesheet" href="css/libs/layout.min.css">
+	<link rel="stylesheet" href="css/components.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/icomoon/styles.min.css">
+	<link rel="stylesheet" href="css/colors.min.css">
+	<link rel="stylesheet" href="css/user.css">
+	<link rel="stylesheet" href="css/libs/select2.css">
+	<link rel="stylesheet" href="css/vega.css">
+	<link rel="stylesheet" href="css/main.min.css" />
+
+
+	<title>React App</title>
+</head>
+<body>
+<header>
+	<div class="container">
+		<div class="d-inline-block logo">
+			<img src="/images/logo_white.png" alt="">
+		</div>
+		<div class="d-inline-block">
+			<p>BTMS application</p>
+		</div>
+	</div>
+</header>
+<main>
+	<div class="container statusbar">
+		<div class="status"></div>
+	</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-3 left_part">
+				<div class="trip_information_block">
+					<div class="block_header">
+						<p>Trip information</p>
+					</div>
+					<div class="block_content">
+						<div class="destination_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Destination</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" disabled value="Novgorod" />
+							</div>
+						</div>
+						<div class="departure_date_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Departure date</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" value="02 May 2020" />
+							</div>
+						</div>
+						<div class="arrival_date_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Arrival date</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" value="02 May 2020" />
+							</div>
+						</div>
+						<div class="engagement_code_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Engagement code</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" value="EU420045" />
+							</div>
+						</div>
+						<div class="order_number_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Order number</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" disabled value="ALA12345" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="summary_block">
+					<div class="block_header">
+						<p>Summary</p>
+					</div>
+					<div class="block_content">
+						<div class="order_number_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Cash paid</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" value="43 000.00" />
+							</div>
+						</div>
+						<div class="order_number_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Recoverable</p></div>
+							<div class="d-inline-block component_input recoverable">
+								<input type="text" disabled value="5 000.00" />
+							</div>
+						</div>
+						<div class="order_number_component inline_input">
+							<div class="d-inline-block component_icon"><i class="icon-play"></i></div>
+							<div class="d-inline-block component_label"><p>Total accrued</p></div>
+							<div class="d-inline-block component_input">
+								<input type="text" disabled value="48 000.00" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="control_buttons_block">
+					<div class="block_content">
+						<div class="d-inline-block"><button class="reject">Reject</button></div>
+						<div class="d-inline-block"><button class="accept">Accept</button></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5 mid_part">
+				<div class="accounting_block">
+					<div class="block_header">
+						<p>Accounting information</p>
+					</div>
+					<div class="block_controlbar">
+						<div class="d-inline-block text-left"><button>expand</button></div>
+						<div class="d-inline-block text-right"><button>check control</button></div>
+					</div>
+					<div class="block_content">
+						<ul class="accounting_list">
+							<li>
+								<ul>
+									<div class="expense_statement_component">
+										<div class="d-inline-block component_icon">
+											<i class="icon-arrow-right5"></i>
+										</div>
+										<div class="d-inline-block component_label">
+											<p>Accommodation</p>
+										</div>
+										<div class="d-inline-block component_input"><input type="text" disabled value="11000.00" /></div>
+										<div class="d-inline-block component_comment">
+											<p>гостиница Parkinn</p>
+										</div>
+										<div class="d-inline-block component_attachment_icon">
+											<p><i class="icon-attachment"></i></p>
+										</div>
+										<div class="d-inline-block component_check">
+											<input type="checkbox" />
+										</div>
+									</div>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<div class="expense_statement_component">
+										<div class="d-inline-block component_icon">
+											<i class="icon-arrow-right5"></i>
+										</div>
+										<div class="d-inline-block component_label">
+											<p>Per diem</p>
+										</div>
+										<div class="d-inline-block component_input"><input type="text" disabled value="11000.00" /></div>
+										<div class="d-inline-block component_comment">
+											<p></p>
+										</div>
+										<div class="d-inline-block component_attachment_icon">
+											<p><i class="icon-attachment"></i></p>
+										</div>
+										<div class="d-inline-block component_check">
+											<input type="checkbox" />
+										</div>
+									</div>
+								</ul>
+							</li>
+							<li>
+								<ul class="not_empty">
+									<div class="expense_statement_component">
+										<div class="d-inline-block component_icon">
+											<i class="icon-arrow-right5"></i>
+										</div>
+										<div class="d-inline-block component_label">
+											<p>Travel</p>
+										</div>
+										<div class="d-inline-block component_input"><input type="text" disabled value="11000.00" /></div>
+										<div class="d-inline-block component_comment">
+											<p>Москва с 20.08.2020 по 21.09.2020</p>
+										</div>
+										<div class="d-inline-block component_attachment_icon">
+											<p><i class="icon-attachment"></i></p>
+										</div>
+										<div class="d-inline-block component_check">
+											<input type="checkbox" />
+										</div>
+									</div>
+									<li>
+										<div class="expense_statement_component">
+											<div class="d-inline-block component_icon">
+											</div>
+											<div class="d-inline-block component_label">
+												<p>Out of pocket</p>
+											</div>
+											<div class="d-inline-block component_input"><input type="text" disabled value="1 533 000.00 " /></div>
+											<div class="d-inline-block component_comment">
+												<p></p>
+											</div>
+											<div class="d-inline-block component_attachment_icon">
+												<p><i class="icon-attachment"></i></p>
+											</div>
+											<div class="d-inline-block component_check">
+												<input type="checkbox" />
+											</div>
+										</div>
+									</li>
+
+								</ul>
+							</li>
+							<li>
+								<ul class="not_empty">
+									<div class="expense_statement_component">
+										<div class="d-inline-block component_icon">
+											<i class="icon-arrow-right5"></i>
+										</div>
+										<div class="d-inline-block component_label">
+											<p>Out of pocket</p>
+										</div>
+										<div class="d-inline-block component_input"><input type="text" disabled value="11000.00" /></div>
+										<div class="d-inline-block component_comment">
+											<p></p>
+										</div>
+										<div class="d-inline-block component_attachment_icon">
+											<p><i class="icon-attachment"></i></p>
+										</div>
+										<div class="d-inline-block component_check">
+											<input type="checkbox" />
+										</div>
+									</div>
+									<li>
+										<div class="expense_statement_component">
+											<div class="d-inline-block component_icon">
+											</div>
+											<div class="d-inline-block component_label">
+												<p>Out of pocket</p>
+											</div>
+											<div class="d-inline-block component_input"><input type="text" disabled value="1 533 000.00 " /></div>
+											<div class="d-inline-block component_comment">
+												<p></p>
+											</div>
+											<div class="d-inline-block component_attachment_icon">
+												<p><i class="icon-attachment"></i></p>
+											</div>
+											<div class="d-inline-block component_check">
+												<input type="checkbox" />
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="expense_statement_component">
+											<div class="d-inline-block component_icon">
+											</div>
+											<div class="d-inline-block component_label">
+												<p>Out of pocket</p>
+											</div>
+											<div class="d-inline-block component_input"><input type="text" disabled value="1 533 000.00 " /></div>
+											<div class="d-inline-block component_comment">
+												<p></p>
+											</div>
+											<div class="d-inline-block component_attachment_icon">
+												<p><i class="icon-attachment"></i></p>
+											</div>
+											<div class="d-inline-block component_check">
+												<input type="checkbox" />
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="expense_statement_component">
+											<div class="d-inline-block component_icon">
+											</div>
+											<div class="d-inline-block component_label">
+												<p>Out of pocket</p>
+											</div>
+											<div class="d-inline-block component_input"><input type="text" disabled value="11000.00 " /></div>
+											<div class="d-inline-block component_comment">
+												<p></p>
+											</div>
+											<div class="d-inline-block component_attachment_icon">
+												<p><i class="icon-attachment"></i></p>
+											</div>
+											<div class="d-inline-block component_check">
+												<input type="checkbox" />
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="expense_statement_component">
+											<div class="d-inline-block component_icon">
+											</div>
+											<div class="d-inline-block component_label">
+												<p>Out of pocket</p>
+											</div>
+											<div class="d-inline-block component_input"><input type="text" disabled value="11000.00 " /></div>
+											<div class="d-inline-block component_comment">
+												<p></p>
+											</div>
+											<div class="d-inline-block component_attachment_icon">
+												<p><i class="icon-attachment"></i></p>
+											</div>
+											<div class="d-inline-block component_check">
+												<input type="checkbox" />
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 right_part">
+				<div class="attachments_block">
+					<div class="block_header">
+						<p>Attachments</p>
+					</div>
+					<div class="block_content">
+						<div class="row">
+							<div class="col-md-6"><img src="" alt="clickable image"></div>
+							<div class="col-md-6"><img src="" alt="clickable image"></div>
+							<div class="col-md-6"><img src="" alt="clickable image"></div>
+							<div class="col-md-6"><img src="" alt="clickable image"></div>
+							<div class="col-md-6"><img src="" alt="clickable image"></div>
+							<div class="col-md-6"><img src="" alt="clickable image"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="navbar_block">
+					<div class="d-inline-block">
+						<button class="back"><i class="icon-play"></i> Back to list</button>
+					</div>
+					<div class="d-inline-block">
+						<button class="previous"><i class="icon-play"></i> Previous</button>
+					</div>
+					<div class="d-inline-block">
+						<button class="next"><i class="icon-play"></i> Next</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="hotkeys_block">
+					<p>Hotkeys:
+						expand/collapse all: CTRL + D
+						control all: CTRL + G</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p>© 2020 JSC KPMG, a company incorporated under the Laws of the Russian Federation, a member firm of the KPMG network of independent member firms affiliated with KPMG International Cooperative (“KPMG International”), a Swiss entity. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+</body>
+</html>

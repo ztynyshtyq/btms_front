@@ -2,6 +2,7 @@ import * as constants from "./constants";
 import history from "../services/history";
 
 // TODO: document that all methods started with "event" will be change state general states (api)
+// TODO: make extendable these events for different projects
 export const eventAuthSuccess = () => {
     history.push(`/dashboard`);
     return ({

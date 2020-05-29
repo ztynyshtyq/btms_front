@@ -1,4 +1,3 @@
-import * as constants from "./constants";
 import history from "../services/history";
 import {loadState} from "../services/local_storage";
 

@@ -1,0 +1,51 @@
+﻿@import "./../settings/colors";
+@import "./../settings/fonts";
+@import "./../settings/sizes";
+
+body{
+  color: $color_common_text;
+}
+
+div{
+  font-size: 0;
+}
+
+p, a {
+  font-family: $font_common;
+  font-size: $font_size_common_text;
+  margin: 0;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px $color_input_border solid;
+  font-family: $font_common;
+  font-size: $font_size_common_text;
+  outline: none;
+
+  &[disabled]{
+    border-bottom: none;
+    color: $color_common_text;
+  }
+}
+
+main, footer{
+  padding-top: 20px;
+}
+
+button {
+  font-family: $font_common;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+ul {
+  margin: 0;
+}
+
+input, p, ul  {
+  color: $color_common_text;
+}

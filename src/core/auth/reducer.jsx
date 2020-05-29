@@ -3,7 +3,7 @@ import {saveState} from "../services/local_storage";
 
 
 const initialState = {
-    username: "mtsoy",
+    username: "accountant",
     password: "Pass1!",
 }
 
@@ -17,6 +17,7 @@ const reducer = (state = initialState, action) => {
 
         case constants.EVENT_AUTH_SUCCESS:
             saveState({userData: state})
+            console.log("event auth success");
             return {
                 ...state,
                 ...action

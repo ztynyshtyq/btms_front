@@ -1,0 +1,22 @@
+﻿@import "../../settings/fonts.scss";
+@import "../../settings/colors.scss";
+@import "../../settings/sizes.scss";
+
+div.react-datepicker{
+  border-radius: 1px;
+  border-color: $color_borders;
+  font-family: $font_common;
+
+  & .react-datepicker__current-month{
+    font-weight: 400;
+  }
+
+  & .react-datepicker__day--selected{
+    background-color: $color_primary;
+    border-radius: 1px;
+  }
+
+  & .react-datepicker__day--outside-month{
+    color: $color_secondary_text;
+  }
+}
