@@ -1,10 +1,37 @@
 ﻿@import "./../settings/colors";
 @import "./../settings/fonts";
+@import "./../settings/sizes";
 
 main{
   & .statusbar{
     height: 50px;
-    margin: 0 0 10px;
+    margin: 0 auto 20px;
+
+    & .status_badge{
+      border-bottom-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+      display: inline-block;
+      font-size: $font_size_secondary_text;
+      height: 17px;
+      line-height: 17px;
+      padding: 0 5px;
+
+      &.accepted{
+        background-color: #B5FFD6;
+
+        & p{
+          color: #009A44;
+        }
+      }
+
+      &.wait{
+        background-color: #FFE49E;
+
+        & p{
+          color: #C05A00;
+        }
+      }
+    }
   }
 
   & .content{

@@ -2,6 +2,9 @@
 @import "./../../settings/colors";
 
 .control_buttons_block {
+  bottom: 0;
+  position: absolute;
+
   & .block_content>div{
     margin: 0 50px 0 0;
 

@@ -1,0 +1,71 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.expense_reports_list_block {
+  height: 700px;
+
+  & .block_header{
+    & p{
+      font-size: $font_size_headers;
+    }
+  }
+
+  & .block_content{
+    margin: 50px 0 0 0;
+
+    & .expense_report_list_header{
+      & div{
+        display: inline-block;
+        padding: 0 10px;
+
+        & p{
+          font-weight: 600;
+        }
+      }
+
+      & .component_total{
+        width: 120px;
+      }
+
+      & .component_order_number{
+        width: 120px;
+      }
+
+      & .component_engagement{
+        width: 200px;
+      }
+
+      & .component_destination{
+        width: 120px;
+      }
+
+      & .component_status{
+        width: 120px;
+      }
+
+      & .component_employee{
+        width: 150px;
+      }
+
+      & .component_dates{
+        width: 200px;
+      }
+
+      &:before{
+        background-color: $color_divider;
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 10px 0;
+      }
+
+      &:after{
+        background-color: $color_divider;
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 10px 0;
+      }
+    }
+  }
+}

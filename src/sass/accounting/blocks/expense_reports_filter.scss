@@ -1,0 +1,15 @@
+﻿@import "./../../settings/sizes";
+@import "./../../settings/colors";
+
+.expense_reports_filter_block {
+  & .block_header{
+
+    & p{
+      font-size: $font_size_headers;
+    }
+  }
+
+  & .block_content{
+
+  }
+}

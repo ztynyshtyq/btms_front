@@ -2,26 +2,57 @@
 @import "./../../settings/colors";
 
 .navbar_block {
-  & div {
-    margin: 0 20px 0 0;
+  & .buttons_part {
+    & div {
+      margin: 0 20px 0 0;
 
-    & button{
-      background: transparent;
-      border: solid 1px $color_borders;
-      border-radius: 2px;
-      box-shadow: none;
-      font-size: $font_size_common_text;
-      height: 24px;
-      line-height: 24px;
+      & button {
+        background: transparent;
+        border: solid 1px $color_borders;
+        border-radius: 2px;
+        box-shadow: none;
+        font-size: $font_size_common_text;
+        height: 24px;
+        line-height: 24px;
 
-      & *{
-        vertical-align: middle;
+        & * {
+          vertical-align: middle;
+        }
       }
-    }
 
-    &:last-of-type{
-      margin: 0
+      &:last-of-type {
+        margin: 0
+      }
     }
   }
 
+  & .report_id_part {
+    background-color: $color_divider;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    content: "";
+    display: block;
+    height: 17px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: -20px;
+    width: 100px;
+  }
+
+  & .hotkeys_part {
+    & p{
+      color: $color_secondary_text;
+    }
+  }
+
+  &:before {
+    background: $color_divider;
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 20px 0;
+    position: relative;
+    width: 100%;
+  }
 }

@@ -6,7 +6,7 @@ const initialState = {
     [constants.PARAM_FILTER_FOR_USER_APPROVAL]: [],
     currentFilter: {
         mainFilter: constants.PARAM_FILTER_FROM_USER_REQUESTS,
-        subFilter: ""
+        subFilter: {}
     }
 };
 

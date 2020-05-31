@@ -1,5 +1,6 @@
 import * as constants from "./constants";
-import {saveState} from "../services/local_storage";
+import * as gConsts from "../constants";
+import {saveState, loadState} from "../services/local_storage";
 
 
 const initialState = {
@@ -17,10 +18,22 @@ const reducer = (state = initialState, action) => {
 
         case constants.EVENT_AUTH_SUCCESS:
             saveState({userData: state})
-            console.log("event auth success");
             return {
                 ...state,
                 ...action
+            }
+
+            //TODO transfer in different default reducer
+        case gConsts.EVENT_REQUEST_INITIATED:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+
+        case gConsts.EVENT_REQUEST_PROCESSED:
+            return {
+                ...state,
+                isFetching: action.isFetching
             }
 
         default:

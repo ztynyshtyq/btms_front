@@ -2,6 +2,7 @@
 import * as urls from "../constants/urls";
 import * as events from "../../../core/auth/events";
 import * as core_events from "../../../core/events";
+import history from "../../../core/services/history";
 
 
 const apiRejectReport = (accessToken, reportId) => dispatch => {
@@ -13,8 +14,12 @@ const apiRejectReport = (accessToken, reportId) => dispatch => {
             "Authorization": accessToken
         },
         body: "report_id=" + reportId + "&comment=qwerty",
-    }).then(response => response.json()/*dispatch(events.eventAuthFailed())*/)
+    }).then(response => {
+        dispatch(core_events.eventRequestProcessed());
+        return response.json();
+    }/*dispatch(events.eventAuthFailed())*/)
         .then(json => {
+            history.push(`/dashboard`);
             //dispatch(setExpenseReportsForUser(_processRequest(json)));
         }, error => dispatch(events.eventAuthFailed()));
 }

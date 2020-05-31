@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import NumberFormat from "react-number-format";
+
 
 const AccountingStatement = ({isChecked, checkStatement, uncheckStatement, comment, label, totalAmount}) => (
     <div className="expense_statement_component">
@@ -9,7 +11,8 @@ const AccountingStatement = ({isChecked, checkStatement, uncheckStatement, comme
             <p>{label}</p>
         </div>
         <div className="d-inline-block component_input">
-            <input type="text" disabled value={totalAmount}/>
+            <NumberFormat thousandSeparator={" "} disabled value={totalAmount} suffix={" "}
+                          className={totalAmount < 0 ? "negative" : ""}/>
         </div>
         <div className="d-inline-block component_comment">
             <p>{comment}</p>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AccountingStatement from '../containers/accounting_statement.comp_container';
+import NumberFormat from "react-number-format";
 
 const AccountingGroup = ({uncheckStatements, checkStatements, checkedStatus, collapseStatement, expandStatement, statementGroup}) => (
     <li>
@@ -18,7 +19,8 @@ const AccountingGroup = ({uncheckStatements, checkStatements, checkedStatus, col
                     <p>{statementGroup.label}</p>
                 </div>
                 <div className="d-inline-block component_input">
-                    <input type="text" disabled value={statementGroup.total}/>
+                    <NumberFormat thousandSeparator={" "} disabled value={statementGroup.total}
+                                  className={statementGroup.total < 0 ? "negative" : ""}/>
                 </div>
                 <div className="d-inline-block component_comment">
                     <p>{statementGroup.comment}</p>

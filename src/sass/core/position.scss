@@ -4,15 +4,19 @@
   width: 1440px;
 }
 
-.left_part:after{
-  background: $color_divider;
-  bottom: 0;
-  content: "";
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 1px;
+.left_part{
+  position: relative;
+
+  &:after{
+    background: $color_divider;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+  }
 }
 
 .right_part:before{

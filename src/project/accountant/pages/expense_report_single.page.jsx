@@ -1,16 +1,20 @@
 import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
+
 import Header from "../blocks/header.block";
+import Footer from "../blocks/footer.block";
 import TripInfo from "../containers/trip_info.block_container";
 import Summary from "../containers/summary.block_container";
 import ControlButtons from "../containers/control_buttons.block_container";
-import Footer from "../containers/footer.block_container";
+import NavBar from "../containers/navbar.block_container";
 import Overlay from "../containers/overlay.block_container";
+import Loader from "../containers/loader.block_container";
 import Accounting from "../containers/accounting.block_container";
 import Attachments from "../containers/attachments.block_container";
 import * as params from "../constants/params";
+import {HotKeys} from "react-hotkeys";
 
-const Page = ({allReportsIds, report, setFilter, getExpenseReportsForApproval, user}) => {
+const Page = ({pageSettings, uncheckAll, checkAll, hotKeyExpandAll, hotKeyCollapseAll, allReportsIds, report, setFilter, getExpenseReportsForApproval, user}) => {
     const reportId = parseInt(useParams().reportId);
 
     useEffect(() => {
@@ -18,17 +22,37 @@ const Page = ({allReportsIds, report, setFilter, getExpenseReportsForApproval, u
         setFilter({
             mainFilter: params.PARAM_FILTER_FOR_USER_APPROVAL,
             subFilter: {
-                reportId: reportId
+                reportId: reportId,
+                status: ["wait", "accepted"]
             }
-        })
+        });
     }, [reportId]);
 
     return (
-        <>
+        <HotKeys
+            keyMap={{
+                EXPAND_ALL: "ctrl+b",
+                COLLAPSE_ALL: "ctrl+m",
+                CHECK_ALL: "ctrl+q",
+                UNCHECK_ALL: "ctrl+y",
+            }}
+            handlers={{
+                EXPAND_ALL: e => hotKeyExpandAll(report),
+                COLLAPSE_ALL: e => hotKeyCollapseAll(report),
+                CHECK_ALL: e => checkAll(report),
+                UNCHECK_ALL: e => uncheckAll(report)
+            }}>
             <Header/>
             <main>
                 <div className="container statusbar">
-                    <div className="status"></div>
+                    {report
+                        ? <div className={report.status + " status_badge"}>
+                            <p>{{
+                                "wait": "on approval",
+                                "accepted": "accepted"
+                            }[report.status]}</p>
+                        </div>
+                        : ""}
                 </div>
                 <div className="container content">
                     <div className="row">
@@ -45,10 +69,12 @@ const Page = ({allReportsIds, report, setFilter, getExpenseReportsForApproval, u
                         </div>
                     </div>
                 </div>
+                <NavBar reportId={reportId} allReportsIds={allReportsIds} />
             </main>
-            <Footer reportId={reportId} allReportsIds={allReportsIds}/>
-            <Overlay/>
-        </>
+            <Footer />
+            <Loader />
+            <Overlay report={report} pageSettings={pageSettings}/>
+        </HotKeys>
     );
 }
 

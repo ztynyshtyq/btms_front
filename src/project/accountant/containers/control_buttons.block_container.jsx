@@ -3,12 +3,9 @@ import ControlButtons from "../blocks/control_buttons.block";
 import apiRejectReport from "../requests/reject_report.request";
 import apiApproveReport from "../requests/approve_report.request";
 
-const mapStateToProps = (state, props) => {
-    console.log(props.report);
-    return ({
+const mapStateToProps = (state, props) => ({
 
-    });
-}
+});
 
 
 const mapDispatchToProps = (dispatch, props) => ({

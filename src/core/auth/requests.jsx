@@ -16,6 +16,7 @@ export const apiAuthRequest = (login, pass) => dispatch => {
     }).then(response => response.json()/*dispatch(events.eventAuthFailed())*/)
         .then(json => {
             dispatch(actions.setUser(_processRequest(json)));
+            //TODO: make get all cities cache request
             dispatch(events.eventAuthSuccess());
         }, error => dispatch(events.eventAuthFailed()));
 }

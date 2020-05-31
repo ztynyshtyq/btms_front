@@ -2,27 +2,47 @@ import React from "react";
 import PropTypes from 'prop-types';
 import SelectPicker from 'react-select';
 import DatePicker, {registerLocale} from "react-datepicker";
+import NumberFormat from 'react-number-format';
 import gb from 'date-fns/locale/en-GB';
 
-const InlineInput = ({reportId, parameter, updateInput, label, icon, isActive, classes, data}) =>{
+const InlineInput = ({report, parameter, updateInput, label, icon, isActive, classes, data}) => {
     const parameterToFieldTypeDictionary = {
         destinationName: "selectPicker",
         reportingDateBegin: "datePicker",
         reportingDateEnd: "datePicker",
         chargeCodeName: "text",
+        expenseReportCashPaid: "number",
+        expenseReportBalance: "number",
+        expenseReportTotalAccrued: "number",
     };
 
+    const updatedFields = (fields) => {
+        if (Object.keys(fields).includes("expenseReportCashPaid"))
+            fields.expenseReportBalance = fields.expenseReportCashPaid - report.expenseReportTotalAccrued;
+
+        return fields;
+    }
+
     const selectInput = (param) => {
-        switch(parameterToFieldTypeDictionary[param]){
+        switch (parameterToFieldTypeDictionary[param]) {
             case "text":
-                return <input type="text" disabled={!isActive} value={data}
-                       onChange={e => updateInput(reportId, {[param]: e.target.value})}/>
+                return <input value={data} disabled={!isActive}
+                              onChange={e => updateInput(report.id, {[param]: e.target.value})}/>
+
+            case "number":
+                return <NumberFormat value={data} disabled={!isActive} thousandSeparator={" "}
+                                     onValueChange={e => updateInput(report.id, updatedFields({[param]: parseInt(e.value)}))}
+                                     className={data < 0 ? "negative" : ""}
+                                     suffix={data < 0 ? ")" : ""}
+                                     prefix={data < 0 ? "(" : ""}
+                />
+
 
             case "datePicker":
                 registerLocale('en-GB', gb)
 
                 return <DatePicker
-                    className="date_picker" selected={new Date(data*1000)}
+                    className="date_picker" selected={new Date(data * 1000)}
                     dateFormat="MMMM d, yyyy"
                     showPopperArrow={false}
                     popperPlacement="right-start"
@@ -32,23 +52,64 @@ const InlineInput = ({reportId, parameter, updateInput, label, icon, isActive, c
                             offset: '0, 10px'
                         },
                     }}
-                    onChange={date => updateInput(reportId, {[param]: +date/1000})}
+                    onChange={date => updateInput(report.id, {[param]: +date / 1000})}
                     locale="en-GB"/>
 
             case "selectPicker":
                 return <SelectPicker isSearchable={true} className="select_picker" options={[
-                    { value: 'AL', label: 'Alabama' },
-                    { value: 'AK', label: 'Alaska' },
+                    //todo: transfer this to report and cache it
+                    {
+                        id: "Астана",
+                        value: "Астана",
+                        label: "Астана",
+                        "country_id": 1
+                    },
+                    {
+                        id: "Томск",
+                        value: "Томск",
+                        label: "Томск",
+                        "country_id": 1
+                    },
+                    {
+                        id: "Москва",
+                        value: "Москва",
+                        label: "Москва",
+                        "country_id": 2
+                    },
+                    {
+                        id: "Омск",
+                        value: "Омск",
+                        label: "Омск",
+                        "country_id": 2
+                    },
+                    {
+                        id: "Новгород",
+                        value: "Новгород",
+                        label: "Новгород",
+                        "country_id": 2
+                    },
+                    {
+                        id: "Актобе",
+                        value: "Актобе",
+                        label: "Актобе",
+                        "country_id": 3
+                    },
+                    {
+                        id: "Алматы",
+                        value: "Алматы",
+                        label: "Алматы",
+                        "country_id": 4
+                    }
                 ]} components={{
-                    DropdownIndicator:() => null,
-                    IndicatorsContainer:() => null
+                    DropdownIndicator: () => null,
+                    IndicatorsContainer: () => null
                 }} placeholder={<div>Chose city</div>}
-                    onChange={e => updateInput(reportId, {[param]: e.value})}
-                    defaultValue={data}/>
+                   onChange={e => updateInput(report.id, {[param]: e.value})}
+                   value={{value: data, label: data, id: data}}/>
 
             default:
                 return <input type="text" disabled={!isActive} value={data}
-                              onChange={e => updateInput(reportId, {[param]: e.target.value})}/>
+                              onChange={e => updateInput(report.id, {[param]: e.target.value})}/>
         }
     }
 

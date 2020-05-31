@@ -10,7 +10,8 @@ const mapStateToProps = (state, props) => ({
     label: props.label,
     isActive: props.isActive,
     data: props.data,
-    reportId: state.pageSettings[constants.PAGE_ACCOUNTANT_SINGLE_REPORT].currentReportId
+    report: state.expenseReports[params.PARAM_FILTER_FOR_USER_APPROVAL]
+        .find(item => item.id === state.expenseReports.currentFilter.subFilter.reportId)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
